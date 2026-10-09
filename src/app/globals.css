@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
   --font-display: var(--font-display);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -45,57 +45,60 @@
 }
 
 /*
-  Moon Phase Emoji - deep space theme.
-  The site is a permanent dark, celestial experience, so the root palette
-  is the space palette (no light mode toggle needed for this design).
+  Moon Phase Emoji — "Moonlit Observatory" theme.
+  Distinct identity: deep midnight navy base, moonlight silver-white text
+  (high contrast), soft violet + ice-blue nebula light, and a luminous
+  periwinkle accent. No gold. Designed for strong readability and a
+  calm, premium, observatory feel.
 */
 :root {
   --radius: 0.875rem;
 
-  /* Deep space background. */
-  --background: oklch(0.13 0.028 275);
-  --foreground: oklch(0.96 0.012 280);
+  /* Deep midnight navy background (navy, not purple). */
+  --background: oklch(0.16 0.025 250);
+  --foreground: oklch(0.97 0.008 240);
 
-  /* Glass cards sit on top of the nebula. */
-  --card: oklch(0.18 0.03 278 / 0.55);
-  --card-foreground: oklch(0.96 0.012 280);
+  /* Frosted glass cards over the nebula. */
+  --card: oklch(0.2 0.025 250 / 0.6);
+  --card-foreground: oklch(0.97 0.008 240);
 
-  --popover: oklch(0.16 0.03 278 / 0.92);
-  --popover-foreground: oklch(0.96 0.012 280);
+  --popover: oklch(0.18 0.025 250 / 0.94);
+  --popover-foreground: oklch(0.97 0.008 240);
 
-  /* Primary is a luminous violet. */
-  --primary: oklch(0.72 0.16 295);
-  --primary-foreground: oklch(0.14 0.03 280);
+  /* Primary: luminous periwinkle / ice-violet. */
+  --primary: oklch(0.74 0.11 265);
+  --primary-foreground: oklch(0.14 0.03 255);
 
-  --secondary: oklch(0.28 0.04 270 / 0.5);
-  --secondary-foreground: oklch(0.96 0.012 280);
+  --secondary: oklch(0.3 0.03 250 / 0.5);
+  --secondary-foreground: oklch(0.97 0.008 240);
 
-  --muted: oklch(0.26 0.03 275 / 0.5);
-  --muted-foreground: oklch(0.78 0.02 280);
+  --muted: oklch(0.28 0.025 250 / 0.55);
+  --muted-foreground: oklch(0.82 0.02 245);
 
-  --accent: oklch(0.7 0.14 235);
-  --accent-foreground: oklch(0.97 0.01 250);
+  /* Accent: soft ice-blue. */
+  --accent: oklch(0.78 0.09 220);
+  --accent-foreground: oklch(0.14 0.03 250);
 
   --destructive: oklch(0.68 0.2 20);
 
   --border: oklch(1 0 0 / 0.1);
   --input: oklch(1 0 0 / 0.12);
-  --ring: oklch(0.72 0.16 295 / 0.6);
+  --ring: oklch(0.74 0.11 265 / 0.6);
 
-  --chart-1: oklch(0.72 0.16 295);
-  --chart-2: oklch(0.7 0.14 235);
-  --chart-3: oklch(0.78 0.13 200);
-  --chart-4: oklch(0.74 0.15 320);
-  --chart-5: oklch(0.72 0.13 255);
+  --chart-1: oklch(0.74 0.11 265);
+  --chart-2: oklch(0.78 0.09 220);
+  --chart-3: oklch(0.72 0.1 290);
+  --chart-4: oklch(0.8 0.07 200);
+  --chart-5: oklch(0.7 0.12 250);
 
-  --sidebar: oklch(0.16 0.03 278 / 0.9);
-  --sidebar-foreground: oklch(0.96 0.012 280);
-  --sidebar-primary: oklch(0.72 0.16 295);
-  --sidebar-primary-foreground: oklch(0.14 0.03 280);
-  --sidebar-accent: oklch(0.28 0.04 270 / 0.5);
-  --sidebar-accent-foreground: oklch(0.96 0.012 280);
+  --sidebar: oklch(0.18 0.025 250 / 0.92);
+  --sidebar-foreground: oklch(0.97 0.008 240);
+  --sidebar-primary: oklch(0.74 0.11 265);
+  --sidebar-primary-foreground: oklch(0.14 0.03 255);
+  --sidebar-accent: oklch(0.3 0.03 250 / 0.5);
+  --sidebar-accent-foreground: oklch(0.97 0.008 240);
   --sidebar-border: oklch(1 0 0 / 0.1);
-  --sidebar-ring: oklch(0.72 0.16 295 / 0.6);
+  --sidebar-ring: oklch(0.74 0.11 265 / 0.6);
 }
 
 @layer base {
@@ -107,7 +110,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: #06040f;
+    background-color: #050816;
     font-feature-settings: "ss01", "cv01";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -116,29 +119,27 @@
 
 /* ---------- Celestial background layers ---------- */
 
-/* The fixed nebula + starfield container sits behind all content. */
 .cosmic-bg {
   position: fixed;
   inset: 0;
   z-index: -2;
   overflow: hidden;
   background:
-    radial-gradient(1200px 800px at 78% -10%, rgba(124, 58, 237, 0.28), transparent 60%),
-    radial-gradient(1000px 700px at 10% 8%, rgba(56, 97, 251, 0.24), transparent 60%),
-    radial-gradient(900px 900px at 50% 120%, rgba(109, 70, 205, 0.22), transparent 60%),
-    linear-gradient(180deg, #06040f 0%, #080718 45%, #050410 100%);
+    radial-gradient(1100px 760px at 80% -8%, rgba(99, 102, 241, 0.22), transparent 62%),
+    radial-gradient(960px 680px at 8% 6%, rgba(56, 116, 203, 0.2), transparent 60%),
+    radial-gradient(900px 900px at 50% 118%, rgba(76, 79, 147, 0.2), transparent 60%),
+    linear-gradient(180deg, #050816 0%, #070b1d 45%, #04060f 100%);
 }
 
-/* Subtle layered nebula clouds for depth. */
 .nebula {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(600px 400px at 20% 30%, rgba(139, 92, 246, 0.16), transparent 70%),
-    radial-gradient(700px 500px at 80% 60%, rgba(59, 130, 246, 0.14), transparent 70%),
-    radial-gradient(500px 500px at 60% 20%, rgba(236, 72, 153, 0.08), transparent 70%);
+    radial-gradient(560px 380px at 18% 28%, rgba(129, 140, 248, 0.14), transparent 70%),
+    radial-gradient(680px 480px at 82% 62%, rgba(56, 116, 203, 0.12), transparent 70%),
+    radial-gradient(480px 480px at 60% 18%, rgba(165, 180, 252, 0.08), transparent 70%);
   filter: blur(8px);
-  animation: nebula-drift 40s ease-in-out infinite alternate;
+  animation: nebula-drift 44s ease-in-out infinite alternate;
 }
 
 @keyframes nebula-drift {
@@ -152,7 +153,6 @@
   }
 }
 
-/* Twinkling stars rendered with box-shadow points. */
 .stars {
   position: absolute;
   inset: 0;
@@ -164,9 +164,9 @@
   position: absolute;
   inset: 0;
   background-image: radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-    radial-gradient(1px 1px at 130px 80px, #cbd5ff, transparent),
+    radial-gradient(1px 1px at 130px 80px, #cdd9ff, transparent),
     radial-gradient(1px 1px at 200px 160px, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 320px 60px, #e0e7ff, transparent),
+    radial-gradient(1.5px 1.5px at 320px 60px, #dbe4ff, transparent),
     radial-gradient(1px 1px at 420px 200px, #fff, transparent);
   background-size: 500px 320px;
   opacity: 0.7;
@@ -185,28 +185,28 @@
 .glass {
   background: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.07) 0%,
-    rgba(255, 255, 255, 0.025) 100%
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 100%
   );
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
-    0 10px 40px -12px rgba(0, 0, 0, 0.6),
+    0 10px 40px -14px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
 .glass-strong {
   background: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.04) 100%
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.035) 100%
   );
   backdrop-filter: blur(22px) saturate(150%);
   -webkit-backdrop-filter: blur(22px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.13);
   box-shadow:
-    0 24px 60px -16px rgba(0, 0, 0, 0.7),
+    0 24px 60px -18px rgba(0, 0, 0, 0.7),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -217,13 +217,13 @@
 .moon-glow::before {
   content: "";
   position: absolute;
-  inset: -22%;
+  inset: -24%;
   z-index: -1;
   border-radius: 9999px;
   background: radial-gradient(
     circle,
-    rgba(167, 139, 250, 0.45) 0%,
-    rgba(59, 130, 246, 0.22) 40%,
+    rgba(165, 180, 252, 0.42) 0%,
+    rgba(56, 116, 203, 0.2) 42%,
     transparent 70%
   );
   filter: blur(18px);
@@ -241,7 +241,6 @@
   }
 }
 
-/* Slow float used on hero elements. */
 .float-slow {
   animation: float-slow 9s ease-in-out infinite;
 }
@@ -255,29 +254,39 @@
   }
 }
 
-/* Gradient text helper for elegant headings. */
+/* Gradient text helper for elegant headings (moonlight silver -> ice blue). */
 .text-gradient {
-  background: linear-gradient(110deg, #fef9ff 0%, #c4b5fd 45%, #93c5fd 100%);
+  background: linear-gradient(110deg, #ffffff 0%, #c7d2fe 48%, #93c5fd 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Section reveal on scroll (used via Framer Motion, kept as fallback). */
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.in-view {
-  opacity: 1;
-  transform: none;
+/* Eyebrow label style. */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(165, 180, 252, 0.85);
 }
 
-/* Custom scrollbar for the deep space theme. */
+/* Hairline divider used between sections. */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(165, 180, 252, 0.25),
+    transparent
+  );
+}
+
+/* Custom scrollbar. */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(167, 139, 250, 0.4) transparent;
+  scrollbar-color: rgba(129, 140, 248, 0.4) transparent;
 }
 *::-webkit-scrollbar {
   width: 10px;
@@ -289,22 +298,20 @@
 *::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
-    rgba(167, 139, 250, 0.5),
-    rgba(59, 130, 246, 0.5)
+    rgba(129, 140, 248, 0.5),
+    rgba(56, 116, 203, 0.5)
   );
   border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 
-/* Focus ring tuned for the dark theme. */
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-  outline: 2px solid rgba(167, 139, 250, 0.8);
+  outline: 2px solid rgba(165, 180, 252, 0.85);
   outline-offset: 2px;
   border-radius: 6px;
 }
 
-/* Reduce motion respect. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

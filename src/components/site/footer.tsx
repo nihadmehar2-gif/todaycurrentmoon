@@ -8,21 +8,7 @@ import {
   useHashRoute,
 } from "@/components/site/use-route";
 import { useMounted } from "@/components/site/use-mounted";
-
-const SOURCES = [
-  {
-    label: "NASA Moon Phase",
-    href: "https://science.nasa.gov/moon/",
-  },
-  {
-    label: "USNO Moon Data",
-    href: "https://aa.usno.navy.mil/data/MoonPhase",
-  },
-  {
-    label: "Time and Date Moon",
-    href: "https://www.timeanddate.com/moon/phases/",
-  },
-];
+import { SCIENTIFIC_SOURCES, SITE_EMAIL } from "@/lib/site";
 
 export function Footer() {
   const { navigate } = useHashRoute();
@@ -30,20 +16,20 @@ export function Footer() {
   const go = (key: RouteKey) => navigate(key);
 
   return (
-    <footer className="mt-auto border-t border-white/10 bg-[#070612]/70 backdrop-blur-xl">
-      <div className="container mx-auto max-w-6xl px-4 py-12">
+    <footer className="mt-auto border-t border-white/10 bg-[#04060f]/70 backdrop-blur-xl">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-12">
         <div className="grid gap-10 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-3">
-              <span className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500/30 to-blue-500/30 ring-1 ring-white/15">
-                <MoonStar className="w-5 h-5 text-violet-200" />
+              <span className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500/30 to-sky-500/30 ring-1 ring-white/15">
+                <MoonStar className="w-5 h-5 text-indigo-100" />
               </span>
               <span className="font-display text-lg font-semibold text-gradient">
                 Moon Phase Emoji
               </span>
             </div>
-            <p className="text-sm text-violet-100/60 leading-relaxed">
+            <p className="text-sm text-slate-300/70 leading-relaxed">
               Live lunar data and the exact current phase of the moon emoji,
               updated in real time for your location.
             </p>
@@ -51,9 +37,7 @@ export function Footer() {
 
           {/* Pages */}
           <nav aria-label="Site pages" className="md:col-span-1">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-200/70 mb-3">
-              Explore
-            </h2>
+            <h2 className="eyebrow mb-3">Explore</h2>
             <ul className="space-y-2">
               {ROUTES.map((r) => (
                 <li key={r.key}>
@@ -63,7 +47,7 @@ export function Footer() {
                       e.preventDefault();
                       go(r.key);
                     }}
-                    className="text-sm text-violet-100/70 hover:text-white transition-colors"
+                    className="text-sm text-slate-300/70 hover:text-white transition-colors"
                   >
                     {r.label}
                   </a>
@@ -74,17 +58,15 @@ export function Footer() {
 
           {/* Sources */}
           <div className="md:col-span-1">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-200/70 mb-3">
-              Sources
-            </h2>
+            <h2 className="eyebrow mb-3">Sources</h2>
             <ul className="space-y-2">
-              {SOURCES.map((s) => (
+              {SCIENTIFIC_SOURCES.map((s) => (
                 <li key={s.href}>
                   <a
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-violet-100/70 hover:text-white transition-colors"
+                    className="text-sm text-slate-300/70 hover:text-white transition-colors"
                   >
                     {s.label}
                   </a>
@@ -95,23 +77,21 @@ export function Footer() {
 
           {/* Contact */}
           <div className="md:col-span-1">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-violet-200/70 mb-3">
-              Contact
-            </h2>
-            <p className="text-sm text-violet-100/70 mb-3">
+            <h2 className="eyebrow mb-3">Contact</h2>
+            <p className="text-sm text-slate-300/70 mb-3">
               We reply to every reader who writes in.
             </p>
             <a
-              href="mailto:nihadmehar2@gmail.com"
-              className="inline-flex items-center gap-2 text-sm text-violet-100 hover:text-white transition-colors break-all"
+              href={`mailto:${SITE_EMAIL}`}
+              className="inline-flex items-center gap-2 text-sm text-indigo-100 hover:text-white transition-colors break-all"
             >
-              <Mail className="w-4 h-4 shrink-0 text-violet-300" />
-              nihadmehar2@gmail.com
+              <Mail className="w-4 h-4 shrink-0 text-indigo-300" />
+              {SITE_EMAIL}
             </a>
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-violet-100/50">
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400/70">
           <p>
             &copy; {mounted ? new Date().getFullYear() : ""} Moon Phase Emoji.
             Built by Adam Jonah.

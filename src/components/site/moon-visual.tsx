@@ -15,7 +15,7 @@ interface MoonVisualProps {
 
 /**
  * Realistic SVG moon renderer. Draws the dark disk, the accurately
- * shaped lit region, subtle crater texture, and a rim highlight so the
+ * shaped lit region, subtle crater texture, and a luminous rim so the
  * phase reads like real lunar lighting.
  */
 export function MoonVisual({
@@ -24,7 +24,7 @@ export function MoonVisual({
   glow = true,
   className,
 }: MoonVisualProps) {
-  const R = 100; // internal SVG units; viewBox handles scaling.
+  const R = 100;
   const litPath = getLitPath(phase, R);
   const gradId = "moon-lit";
   const darkId = "moon-dark";
@@ -43,21 +43,21 @@ export function MoonVisual({
       )} percent illumination`}
     >
       <defs>
-        <radialGradient id={gradId} cx="32%" cy="30%" r="80%">
-          <stop offset="0%" stopColor="#fffdf6" />
-          <stop offset="35%" stopColor="#f4ecd6" />
-          <stop offset="70%" stopColor="#d9c9a3" />
-          <stop offset="100%" stopColor="#9c8a63" />
+        <radialGradient id={gradId} cx="34%" cy="30%" r="82%">
+          <stop offset="0%" stopColor="#fffefb" />
+          <stop offset="38%" stopColor="#eef0ff" />
+          <stop offset="72%" stopColor="#c3cbef" />
+          <stop offset="100%" stopColor="#7e89c4" />
         </radialGradient>
         <radialGradient id={darkId} cx="68%" cy="70%" r="85%">
-          <stop offset="0%" stopColor="#1a1730" />
-          <stop offset="60%" stopColor="#100d22" />
-          <stop offset="100%" stopColor="#07060f" />
+          <stop offset="0%" stopColor="#161a35" />
+          <stop offset="60%" stopColor="#0c0f24" />
+          <stop offset="100%" stopColor="#05060f" />
         </radialGradient>
         <radialGradient id={rimId} cx="50%" cy="50%" r="50%">
-          <stop offset="86%" stopColor="rgba(196,181,253,0)" />
-          <stop offset="96%" stopColor="rgba(196,181,253,0.35)" />
-          <stop offset="100%" stopColor="rgba(196,181,253,0)" />
+          <stop offset="84%" stopColor="rgba(165,180,252,0)" />
+          <stop offset="95%" stopColor="rgba(165,180,252,0.4)" />
+          <stop offset="100%" stopColor="rgba(165,180,252,0)" />
         </radialGradient>
         <clipPath id="moon-clip">
           <circle cx="0" cy="0" r={R} />
@@ -79,7 +79,7 @@ export function MoonVisual({
       </defs>
 
       {glow && (
-        <circle cx="0" cy="0" r={R + 18} fill="url(#moon-rim)" opacity="0.9" />
+        <circle cx="0" cy="0" r={R + 20} fill="url(#moon-rim)" opacity="0.9" />
       )}
 
       {/* Dark base disk (the unlit near side). */}
@@ -88,7 +88,6 @@ export function MoonVisual({
       {/* Lit portion, clipped to the disk. */}
       <g clipPath="url(#moon-clip)">
         <path d={litPath} fill={`url(#${gradId})`} />
-        {/* Crater texture over the whole disk for surface realism. */}
         <circle cx="0" cy="0" r={R} fill={`url(#${cratersId})`} opacity="0.5" />
       </g>
 
@@ -101,13 +100,13 @@ export function MoonVisual({
         stroke="rgba(0,0,0,0.45)"
         strokeWidth="1.5"
       />
-      {/* Subtle rim light. */}
+      {/* Luminous rim light. */}
       <circle
         cx="0"
         cy="0"
         r={R - 0.5}
         fill="none"
-        stroke="rgba(255,255,255,0.12)"
+        stroke="rgba(255,255,255,0.14)"
         strokeWidth="1"
       />
     </svg>

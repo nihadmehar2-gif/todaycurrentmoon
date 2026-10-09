@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://moonphaseemoji.app/sitemap.xml
+Sitemap: https://moonphaseemoji.com/sitemap.xml

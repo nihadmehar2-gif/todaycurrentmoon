@@ -1,4 +1,5 @@
 import type { PhaseKey } from "@/lib/moon";
+import { SCIENTIFIC_SOURCES } from "@/lib/site";
 
 export interface FaqItem {
   q: string;
@@ -98,29 +99,9 @@ export const EMOJI_MEANINGS: EmojiMeaning[] = [
   },
 ];
 
-export interface SourceLink {
-  label: string;
-  href: string;
-  note: string;
-}
+export type SourceLink = (typeof SCIENTIFIC_SOURCES)[number];
 
-export const SOURCES: SourceLink[] = [
-  {
-    label: "NASA Science: Moon",
-    href: "https://science.nasa.gov/moon/",
-    note: "NASA facts on the Moon, its phases, and its orbit around Earth.",
-  },
-  {
-    label: "US Navy Astronomical Applications",
-    href: "https://aa.usno.navy.mil/data/MoonPhase",
-    note: "Official moon phase tables used to check our lunar math.",
-  },
-  {
-    label: "Time and Date: Moon Phases",
-    href: "https://www.timeanddate.com/moon/phases/",
-    note: "A trusted reference for moon phase dates around the world.",
-  },
-];
+export const SOURCES: SourceLink[] = [...SCIENTIFIC_SOURCES];
 
 export interface CalculatorTool {
   id: string;

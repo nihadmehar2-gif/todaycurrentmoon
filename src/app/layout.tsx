@@ -1,33 +1,33 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Outfit, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { SITE_URL, SITE_NAME, SITE_AUTHOR } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sans = Outfit({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
+const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  axes: ["opsz", "SOFT"],
 });
 
-const SITE_URL = "https://moonphaseemoji.app";
+const mono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Current Phase of the Moon Emoji | Moon Phase Today",
-    template: "%s | Moon Phase Emoji",
+    template: "%s",
   },
   description:
     "See the current phase of the moon emoji for today with the exact moon phase, illumination, lunar age, and cycle progress. Live moon data, a moon calendar, and easy moon calculators.",
@@ -42,16 +42,14 @@ export const metadata: Metadata = {
     "new moon",
     "moon illumination",
   ],
-  authors: [{ name: "Adam Jonah" }],
-  creator: "Adam Jonah",
-  applicationName: "Moon Phase Emoji",
+  authors: [{ name: SITE_AUTHOR }],
+  creator: SITE_AUTHOR,
+  applicationName: SITE_NAME,
   alternates: {
     canonical: "/",
   },
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/favicon.svg" }],
   },
   openGraph: {
@@ -59,7 +57,7 @@ export const metadata: Metadata = {
     description:
       "Live moon phase today with the exact emoji, illumination, lunar age, and cycle progress. A free moon calendar and moon calculators.",
     url: SITE_URL,
-    siteName: "Moon Phase Emoji",
+    siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
   },
@@ -83,7 +81,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#06040f",
+  themeColor: "#050816",
   width: "device-width",
   initialScale: 1,
 };
@@ -91,7 +89,7 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Moon Phase Emoji",
+  name: SITE_NAME,
   url: SITE_URL,
   description:
     "See the current phase of the moon emoji for today with live moon data, a moon calendar, and moon calculators.",
@@ -110,7 +108,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
+        className={`${sans.variable} ${display.variable} ${mono.variable} antialiased`}
       >
         {children}
         <Toaster />

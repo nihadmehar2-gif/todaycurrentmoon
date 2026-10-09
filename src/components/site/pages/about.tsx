@@ -52,22 +52,22 @@ export function AboutPage() {
         <Card className="glass-strong rounded-3xl border-white/10 p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row gap-6 items-start">
             <div className="shrink-0">
-              <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500/30 to-blue-500/30 ring-1 ring-white/15 text-2xl font-display font-semibold text-white">
+              <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500/30 to-sky-500/30 ring-1 ring-white/15 text-2xl font-display font-semibold text-white">
                 AJ
               </div>
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <Quote className="w-4 h-4 text-violet-300" />
-                <span className="text-xs uppercase tracking-[0.18em] text-violet-200/70">
+                <Quote className="w-4 h-4 text-indigo-300" />
+                <span className="eyebrow">
                   Content Specialist
                 </span>
               </div>
               <h2 className="font-display text-xl font-semibold text-white">
                 Adam Jonah
               </h2>
-              <p className="text-sm text-violet-200/70 mb-3">Website Developer</p>
-              <div className="text-sm text-violet-100/80 leading-relaxed space-y-3">
+              <p className="text-sm text-indigo-200/70 mb-3">Website Developer</p>
+              <div className="text-sm text-slate-200/85 leading-relaxed space-y-3">
                 <p>
                   Hi, I am Adam. I built Moon Phase Emoji because the moon
                   should be simple to check. My work focuses on clear content,
@@ -101,13 +101,13 @@ export function AboutPage() {
           {VALUES.map((v, i) => (
             <Reveal key={v.title} delay={i * 0.06}>
               <Card className="glass h-full p-6 rounded-2xl border-white/10">
-                <div className="grid place-items-center w-11 h-11 rounded-xl bg-violet-500/15 ring-1 ring-violet-300/20 mb-4">
-                  <v.icon className="w-5 h-5 text-violet-200" />
+                <div className="grid place-items-center w-11 h-11 rounded-xl bg-indigo-500/15 ring-1 ring-indigo-300/20 mb-4">
+                  <v.icon className="w-5 h-5 text-indigo-200" />
                 </div>
                 <h3 className="font-display text-base font-semibold text-white mb-2">
                   {v.title}
                 </h3>
-                <p className="text-sm text-violet-100/70 leading-relaxed">
+                <p className="text-sm text-slate-300/80 leading-relaxed">
                   {v.text}
                 </p>
               </Card>
@@ -127,7 +127,7 @@ export function AboutPage() {
           <Card className="glass rounded-2xl border-white/10 p-6">
             <ul className="space-y-3">
               {PROMISES.map((p) => (
-                <li key={p} className="flex items-start gap-3 text-sm text-violet-100/80">
+                <li key={p} className="flex items-start gap-3 text-sm text-slate-200/85">
                   <CheckCircle2 className="w-4 h-4 text-emerald-300 mt-0.5 shrink-0" />
                   {p}
                 </li>
@@ -142,7 +142,7 @@ export function AboutPage() {
           <h2 className="font-display text-xl font-semibold text-white mb-3">
             Why I made this
           </h2>
-          <p className="text-violet-100/75 leading-relaxed">
+          <p className="text-slate-300/80 leading-relaxed">
             I kept looking for a quick, clean way to see the moon phase for
             today. Most tools were cluttered, slow, or wrong. So I built one
             myself. The moon is the same for all of us, so the data should be

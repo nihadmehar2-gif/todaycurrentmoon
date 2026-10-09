@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { PageShell } from "@/components/site/page-shell";
 import { Reveal } from "@/components/site/reveal";
 import { SectionHeading } from "@/components/site/section";
+import { SITE_EMAIL } from "@/lib/site";
 
 interface FieldErrors {
   name?: string;
@@ -87,7 +88,7 @@ export function ContactPage() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Contact Moon Phase Emoji",
-    email: "nihadmehar2@gmail.com",
+    email: SITE_EMAIL,
   };
 
   return (
@@ -106,36 +107,36 @@ export function ContactPage() {
             </h2>
             <div className="space-y-5">
               <div className="flex items-start gap-3">
-                <div className="grid place-items-center w-10 h-10 rounded-xl bg-violet-500/15 ring-1 ring-violet-300/20 shrink-0">
-                  <Mail className="w-5 h-5 text-violet-200" />
+                <div className="grid place-items-center w-10 h-10 rounded-xl bg-indigo-500/15 ring-1 ring-indigo-300/20 shrink-0">
+                  <Mail className="w-5 h-5 text-indigo-200" />
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-wide text-violet-200/60 mb-0.5">
+                  <div className="text-xs uppercase tracking-wide text-indigo-200/60 mb-0.5">
                     Email
                   </div>
                   <a
-                    href="mailto:nihadmehar2@gmail.com"
-                    className="text-sm text-white hover:text-violet-200 transition-colors break-all"
+                    href={`mailto:${SITE_EMAIL}`}
+                    className="text-sm text-white hover:text-indigo-200 transition-colors break-all"
                   >
-                    nihadmehar2@gmail.com
+                    {SITE_EMAIL}
                   </a>
-                  <p className="text-xs text-violet-100/50 mt-1">
+                  <p className="text-xs text-slate-400 mt-1">
                     The fastest way to get a reply.
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="grid place-items-center w-10 h-10 rounded-xl bg-violet-500/15 ring-1 ring-violet-300/20 shrink-0">
-                  <MapPin className="w-5 h-5 text-violet-200" />
+                <div className="grid place-items-center w-10 h-10 rounded-xl bg-indigo-500/15 ring-1 ring-indigo-300/20 shrink-0">
+                  <MapPin className="w-5 h-5 text-indigo-200" />
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-wide text-violet-200/60 mb-0.5">
+                  <div className="text-xs uppercase tracking-wide text-indigo-200/60 mb-0.5">
                     Coverage
                   </div>
                   <p className="text-sm text-white">
                     Moon data for every time zone
                   </p>
-                  <p className="text-xs text-violet-100/50 mt-1">
+                  <p className="text-xs text-slate-400 mt-1">
                     Pick your zone in the live tool on the home page.
                   </p>
                 </div>
@@ -146,7 +147,7 @@ export function ContactPage() {
               <h3 className="text-sm font-semibold text-white mb-2">
                 What we help with
               </h3>
-              <ul className="space-y-2 text-sm text-violet-100/70">
+              <ul className="space-y-2 text-sm text-slate-300/80">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-300 mt-0.5 shrink-0" />
                   Corrections to moon data or content
@@ -174,7 +175,7 @@ export function ContactPage() {
             <h2 className="font-display text-xl font-semibold text-white mb-1">
               Send a message
             </h2>
-            <p className="text-sm text-violet-100/70 mb-5">
+            <p className="text-sm text-slate-300/80 mb-5">
               Fill in the form and we will save your note. We read every message
               that comes through.
             </p>
@@ -185,7 +186,7 @@ export function ContactPage() {
                 <h3 className="font-display text-lg font-semibold text-white mb-1">
                   Your message was saved
                 </h3>
-                <p className="text-sm text-violet-100/70 mb-4">
+                <p className="text-sm text-slate-300/80 mb-4">
                   Thanks for reaching out. We will get back to you soon. Need a
                   faster reply? Email us directly.
                 </p>
@@ -212,7 +213,7 @@ export function ContactPage() {
                 />
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-violet-100">
+                    <Label htmlFor="name" className="text-slate-200">
                       Name
                     </Label>
                     <Input
@@ -221,14 +222,14 @@ export function ContactPage() {
                       onChange={update("name")}
                       placeholder="Your name"
                       aria-invalid={!!errors.name}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-violet-100/30"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-slate-400/50"
                     />
                     {errors.name && (
                       <p className="text-xs text-rose-300">{errors.name}</p>
                     )}
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-violet-100">
+                    <Label htmlFor="email" className="text-slate-200">
                       Email
                     </Label>
                     <Input
@@ -238,7 +239,7 @@ export function ContactPage() {
                       onChange={update("email")}
                       placeholder="you@example.com"
                       aria-invalid={!!errors.email}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-violet-100/30"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-slate-400/50"
                     />
                     {errors.email && (
                       <p className="text-xs text-rose-300">{errors.email}</p>
@@ -246,7 +247,7 @@ export function ContactPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-violet-100">
+                  <Label htmlFor="subject" className="text-slate-200">
                     Subject
                   </Label>
                   <Input
@@ -255,14 +256,14 @@ export function ContactPage() {
                     onChange={update("subject")}
                     placeholder="What is this about?"
                     aria-invalid={!!errors.subject}
-                    className="bg-white/5 border-white/10 text-white placeholder:text-violet-100/30"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-slate-400/50"
                   />
                   {errors.subject && (
                     <p className="text-xs text-rose-300">{errors.subject}</p>
                   )}
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-violet-100">
+                  <Label htmlFor="message" className="text-slate-200">
                     Message
                   </Label>
                   <Textarea
@@ -272,7 +273,7 @@ export function ContactPage() {
                     placeholder="Write your message here..."
                     rows={5}
                     aria-invalid={!!errors.message}
-                    className="bg-white/5 border-white/10 text-white placeholder:text-violet-100/30 resize-none"
+                    className="bg-white/5 border-white/10 text-white placeholder:text-slate-400/50 resize-none"
                   />
                   {errors.message && (
                     <p className="text-xs text-rose-300">{errors.message}</p>
@@ -281,7 +282,7 @@ export function ContactPage() {
                 <Button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full sm:w-auto bg-gradient-to-r from-violet-500 to-blue-500 hover:from-violet-400 hover:to-blue-400 text-white border-0"
+                  className="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400 text-white border-0 shadow-lg shadow-indigo-500/20"
                 >
                   {status === "loading" ? (
                     <>
@@ -309,7 +310,7 @@ export function ContactPage() {
             title="How we handle your message"
             description="We keep this simple and honest."
           />
-          <p className="text-violet-100/75 leading-relaxed mt-3">
+          <p className="text-slate-300/80 leading-relaxed mt-3">
             When you submit the form, we save your name, email, subject, and
             message so we can read and reply. We do not use analytics, ads,
             tracking pixels, or third party tools on this site. For the full

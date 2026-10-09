@@ -76,14 +76,14 @@ function DateMoonCalculator() {
           <h3 className="font-display text-xl font-semibold text-white mb-1">
             Moon phase for any date
           </h3>
-          <p className="text-sm text-violet-100/70 mb-5">
+          <p className="text-sm text-slate-300/80 mb-5">
             Pick a date and see the exact moon phase, emoji, and live details for
             that day. Great for planning, photos, or looking back at a special
             moment.
           </p>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="moon-date" className="text-violet-100">
+              <Label htmlFor="moon-date" className="text-slate-200">
                 Choose a date
               </Label>
               <Input
@@ -110,7 +110,7 @@ function DateMoonCalculator() {
                 },
               ].map((s) => (
                 <div key={s.l} className="glass rounded-2xl px-3 py-2.5">
-                  <div className="text-[10px] uppercase tracking-wide text-violet-200/60">
+                  <div className="text-[10px] uppercase tracking-wide text-indigo-200/60">
                     {s.l}
                   </div>
                   <div className="text-sm text-white font-medium tabular-nums">
@@ -121,7 +121,7 @@ function DateMoonCalculator() {
             </div>
             <div className="grid grid-cols-2 gap-2.5">
               <div className="glass rounded-2xl px-3 py-2.5">
-                <div className="text-[10px] uppercase tracking-wide text-violet-200/60">
+                <div className="text-[10px] uppercase tracking-wide text-indigo-200/60">
                   Next full moon
                 </div>
                 <div className="text-sm text-white font-medium">
@@ -129,7 +129,7 @@ function DateMoonCalculator() {
                 </div>
               </div>
               <div className="glass rounded-2xl px-3 py-2.5">
-                <div className="text-[10px] uppercase tracking-wide text-violet-200/60">
+                <div className="text-[10px] uppercase tracking-wide text-indigo-200/60">
                   Next new moon
                 </div>
                 <div className="text-sm text-white font-medium">
@@ -223,25 +223,25 @@ export function MoonCalculatorsPage() {
             const isCalendar = t.id === "moon-calendar";
             return (
               <Reveal key={t.id} delay={i * 0.04}>
-                <Card className="glass h-full p-5 rounded-2xl border-white/10 hover:border-violet-300/30 transition-colors flex flex-col">
+                <Card className="glass h-full p-5 rounded-2xl border-white/10 hover:border-indigo-300/30 transition-colors flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="grid place-items-center w-10 h-10 rounded-xl bg-violet-500/15 ring-1 ring-violet-300/20 text-xl">
+                    <div className="grid place-items-center w-10 h-10 rounded-xl bg-indigo-500/15 ring-1 ring-indigo-300/20 text-xl">
                       <span aria-hidden>{t.emoji}</span>
                     </div>
                     <h3 className="font-display text-base font-semibold text-white">
                       {t.name}
                     </h3>
                   </div>
-                  <p className="text-sm text-violet-100/70 leading-relaxed mb-3">
+                  <p className="text-sm text-slate-300/80 leading-relaxed mb-3">
                     {t.blurb}
                   </p>
                   <ul className="space-y-1.5 mb-4 flex-1">
                     {t.points.map((p) => (
                       <li
                         key={p}
-                        className="flex items-start gap-2 text-xs text-violet-100/60"
+                        className="flex items-start gap-2 text-xs text-slate-300/70"
                       >
-                        <Sparkles className="w-3 h-3 text-violet-300 mt-0.5 shrink-0" />
+                        <Sparkles className="w-3 h-3 text-indigo-300 mt-0.5 shrink-0" />
                         {p}
                       </li>
                     ))}
@@ -250,14 +250,14 @@ export function MoonCalculatorsPage() {
                     {isCalendar ? (
                       <button
                         onClick={() => go("moon-calendar")}
-                        className="inline-flex items-center gap-1.5 text-xs text-violet-200 hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs text-indigo-200 hover:text-white transition-colors"
                       >
                         <Icon className="w-3.5 h-3.5" />
                         {meta?.note}
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     ) : (
-                      <span className="inline-flex items-center gap-1.5 text-xs text-violet-200/70">
+                      <span className="inline-flex items-center gap-1.5 text-xs text-indigo-200/70">
                         <Icon className="w-3.5 h-3.5" />
                         {meta?.note}
                       </span>
@@ -272,7 +272,7 @@ export function MoonCalculatorsPage() {
 
       <Reveal>
         <Card className="glass rounded-2xl border-white/10 p-5 sm:p-6">
-          <p className="text-sm text-violet-100/75 leading-relaxed">
+          <p className="text-sm text-slate-300/80 leading-relaxed">
             Every tool here uses the same lunar math, based on the 29.53-day
             cycle and a known reference new moon. That keeps the phase, emoji,
             and dates consistent across the whole site. Pick a tool, enter your

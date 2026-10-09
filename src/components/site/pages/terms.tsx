@@ -72,7 +72,7 @@ export function TermsPage() {
               <h2 className="font-display text-lg font-semibold text-white mb-2">
                 {s.h}
               </h2>
-              <p className="text-sm text-violet-100/75 leading-relaxed">
+              <p className="text-sm text-slate-300/80 leading-relaxed">
                 {s.p}
               </p>
             </Card>
@@ -80,7 +80,7 @@ export function TermsPage() {
         ))}
       </div>
       <Reveal>
-        <p className="text-xs text-violet-100/50 text-center pt-4">
+        <p className="text-xs text-slate-400/70 text-center pt-4">
           Last reviewed:{" "}
           {mounted
             ? new Date().toLocaleDateString("en-US", {

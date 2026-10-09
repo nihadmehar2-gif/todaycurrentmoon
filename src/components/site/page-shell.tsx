@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Reveal } from "@/components/site/reveal";
 import { type RouteKey, routeHref, useHashRoute } from "@/components/site/use-route";
+import { SITE_URL } from "@/lib/site";
 
 interface PageShellProps {
   title: string;
@@ -40,19 +41,19 @@ export function PageShell({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://moonphaseemoji.app/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: breadcrumb,
-        item: `https://moonphaseemoji.app/#${route}`,
+        item: `${SITE_URL}/#${route}`,
       },
     ],
   };
 
   return (
-    <article className="pt-28 sm:pt-32 pb-10">
+    <article className="pt-28 sm:pt-32 pb-12">
       <div className="container mx-auto max-w-4xl px-4">
         <Reveal>
           <Breadcrumb className="mb-5">
@@ -60,7 +61,7 @@ export function PageShell({
               <BreadcrumbItem>
                 <BreadcrumbLink
                   asChild
-                  className="text-violet-200/70 hover:text-white"
+                  className="text-indigo-200/70 hover:text-white"
                 >
                   <a
                     href={routeHref("home")}
@@ -73,7 +74,7 @@ export function PageShell({
                   </a>
                 </BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-violet-200/40" />
+              <BreadcrumbSeparator className="text-indigo-200/40" />
               <BreadcrumbItem>
                 <BreadcrumbPage className="text-white">
                   {breadcrumb}
@@ -84,14 +85,15 @@ export function PageShell({
         </Reveal>
 
         <Reveal delay={0.05}>
-          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-gradient leading-tight">
+          <span className="eyebrow mb-3">Moon Phase Emoji</span>
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-gradient leading-[1.1] tracking-tight">
             {title}
           </h1>
         </Reveal>
 
         {description && (
           <Reveal delay={0.1}>
-            <p className="mt-4 text-violet-100/70 text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="mt-4 text-slate-200/80 text-base sm:text-lg leading-relaxed max-w-2xl">
               {description}
             </p>
           </Reveal>

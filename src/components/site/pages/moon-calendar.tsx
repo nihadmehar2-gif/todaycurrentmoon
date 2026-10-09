@@ -77,7 +77,7 @@ export function MoonCalendarPage() {
               <h3 className="font-display text-base font-semibold text-white mb-1.5">
                 {c.t}
               </h3>
-              <p className="text-sm text-violet-100/70 leading-relaxed">
+              <p className="text-sm text-slate-300/80 leading-relaxed">
                 {c.d}
               </p>
             </Card>
@@ -109,7 +109,7 @@ export function MoonCalendarPage() {
                       <div className="text-sm font-medium text-white">
                         {p.name}
                       </div>
-                      <div className="text-xs text-violet-100/60">
+                      <div className="text-xs text-slate-400/70">
                         {p.short}
                       </div>
                     </div>
@@ -121,7 +121,7 @@ export function MoonCalendarPage() {
                             day: "numeric",
                           }).format(match)}
                         </div>
-                        <div className="text-[10px] text-violet-100/50">
+                        <div className="text-[10px] text-indigo-200/60">
                           Next up
                         </div>
                       </div>

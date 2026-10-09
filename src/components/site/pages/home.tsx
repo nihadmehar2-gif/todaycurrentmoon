@@ -92,7 +92,7 @@ export function HomePage() {
                 <h3 className="font-display text-lg font-semibold text-white mb-2">
                   {c.t}
                 </h3>
-                <p className="text-sm text-violet-100/70 leading-relaxed">
+                <p className="text-sm text-slate-300/80 leading-relaxed">
                   {c.d}
                 </p>
               </Card>
@@ -114,7 +114,7 @@ export function HomePage() {
         <Reveal className="mt-8 text-center">
           <button
             onClick={() => go("moon-phases")}
-            className="inline-flex items-center gap-2 text-sm text-violet-200 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-indigo-200 hover:text-white transition-colors"
           >
             Explore the full moon phases guide
             <ArrowRight className="w-4 h-4" />
@@ -147,7 +147,7 @@ export function HomePage() {
         <Reveal className="mt-8 text-center">
           <button
             onClick={() => go("moon-calendar")}
-            className="inline-flex items-center gap-2 text-sm text-violet-200 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-indigo-200 hover:text-white transition-colors"
           >
             Open the full moon calendar
             <ArrowRight className="w-4 h-4" />
@@ -165,14 +165,14 @@ export function HomePage() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {EMOJI_MEANINGS.map((m, i) => (
             <Reveal key={m.phase} delay={i * 0.04}>
-              <Card className="glass h-full p-5 rounded-2xl border-white/10 hover:border-violet-300/30 transition-colors">
+              <Card className="glass h-full p-5 rounded-2xl border-white/10 hover:border-indigo-300/30 transition-colors">
                 <div className="text-4xl mb-3" aria-hidden>
                   {m.emoji}
                 </div>
                 <h3 className="font-display text-base font-semibold text-white mb-1.5">
                   {m.name}
                 </h3>
-                <p className="text-sm text-violet-100/70 leading-relaxed">
+                <p className="text-sm text-slate-300/80 leading-relaxed">
                   {m.meaning}
                 </p>
               </Card>
@@ -192,13 +192,13 @@ export function HomePage() {
           {WHY_PHASES.map((w, i) => (
             <Reveal key={w.title} delay={i * 0.06}>
               <Card className="glass h-full p-6 rounded-2xl border-white/10">
-                <div className="grid place-items-center w-11 h-11 rounded-xl bg-violet-500/15 ring-1 ring-violet-300/20 mb-4">
-                  <w.icon className="w-5 h-5 text-violet-200" />
+                <div className="grid place-items-center w-11 h-11 rounded-xl bg-indigo-500/15 ring-1 ring-indigo-300/20 mb-4">
+                  <w.icon className="w-5 h-5 text-indigo-200" />
                 </div>
                 <h3 className="font-display text-base font-semibold text-white mb-2">
                   {w.title}
                 </h3>
-                <p className="text-sm text-violet-100/70 leading-relaxed">
+                <p className="text-sm text-slate-300/80 leading-relaxed">
                   {w.text}
                 </p>
               </Card>
@@ -225,11 +225,11 @@ export function HomePage() {
                 >
                   <AccordionTrigger className="text-left text-white hover:no-underline">
                     <span className="flex items-center gap-2">
-                      <HelpCircle className="w-4 h-4 text-violet-300 shrink-0" />
+                      <HelpCircle className="w-4 h-4 text-indigo-300 shrink-0" />
                       {f.q}
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="text-violet-100/70 leading-relaxed">
+                  <AccordionContent className="text-slate-300/80 leading-relaxed">
                     {f.a}
                   </AccordionContent>
                 </AccordionItem>
@@ -245,26 +245,26 @@ export function HomePage() {
           <Card className="glass-strong rounded-3xl border-white/10 p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <div className="shrink-0">
-                <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500/30 to-blue-500/30 ring-1 ring-white/15 text-2xl font-display font-semibold text-white">
+                <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500/30 to-sky-500/30 ring-1 ring-white/15 text-2xl font-display font-semibold text-white">
                   AJ
                 </div>
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <Quote className="w-4 h-4 text-violet-300" />
-                  <span className="text-xs uppercase tracking-[0.18em] text-violet-200/70">
+                  <Quote className="w-4 h-4 text-indigo-300" />
+                  <span className="eyebrow">
                     About the Content Specialist
                   </span>
                 </div>
                 <h3 className="font-display text-xl font-semibold text-white">
                   Adam Jonah
                 </h3>
-                <p className="text-sm text-violet-200/70 mb-3">
+                <p className="text-sm text-indigo-200/70 mb-3">
                   Website Developer
                 </p>
-                <div className="text-sm text-violet-100/80 leading-relaxed space-y-3">
+                <div className="text-sm text-slate-200/85 leading-relaxed space-y-3">
                   <p>
-                    Hi, I am Adam. I build this site because I want the current
+                    Hi, I am Adam. I built this site because I want the current
                     phase of the moon to be easy to find, read, and trust. My
                     focus is on clear content, simple tools, and useful
                     explanations that help you in real life.
@@ -305,15 +305,15 @@ export function HomePage() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <Card className="glass h-full p-6 rounded-2xl border-white/10 hover:border-violet-300/30 transition-colors group">
+                <Card className="glass h-full p-6 rounded-2xl border-white/10 hover:border-indigo-300/30 transition-colors group">
                   <div className="flex items-center justify-between mb-3">
-                    <Sparkles className="w-5 h-5 text-violet-300" />
-                    <ExternalLink className="w-4 h-4 text-violet-200/50 group-hover:text-white transition-colors" />
+                    <Sparkles className="w-5 h-5 text-indigo-300" />
+                    <ExternalLink className="w-4 h-4 text-indigo-200/50 group-hover:text-white transition-colors" />
                   </div>
                   <h3 className="font-display text-base font-semibold text-white mb-2">
                     {s.label}
                   </h3>
-                  <p className="text-sm text-violet-100/70 leading-relaxed">
+                  <p className="text-sm text-slate-300/80 leading-relaxed">
                     {s.note}
                   </p>
                 </Card>

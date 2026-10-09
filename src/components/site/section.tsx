@@ -32,7 +32,7 @@ export function SectionHeading({
       {eyebrow && (
         <span
           id={id ? `${id}-eyebrow` : undefined}
-          className="inline-block text-xs font-semibold uppercase tracking-[0.22em] text-violet-300/80 mb-3"
+          className="eyebrow mb-3"
         >
           {eyebrow}
         </span>
@@ -40,13 +40,13 @@ export function SectionHeading({
       <h2
         id={id}
         className={cn(
-          "font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-gradient leading-tight",
+          "font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-gradient leading-[1.15] tracking-tight",
         )}
       >
         {title}
       </h2>
       {description && (
-        <p className="mt-3 text-violet-100/70 text-sm sm:text-base leading-relaxed">
+        <p className="mt-3 text-slate-300/80 text-sm sm:text-base leading-relaxed">
           {description}
         </p>
       )}
@@ -71,10 +71,10 @@ export function Section({
     <section
       id={id}
       aria-labelledby={id ? `${id}-heading` : undefined}
-      className={cn("py-12 sm:py-16 lg:py-20 scroll-mt-24", className)}
+      className={cn("py-14 sm:py-16 lg:py-20 scroll-mt-24", className)}
     >
       {container ? (
-        <div className="container mx-auto max-w-6xl px-4">{children}</div>
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6">{children}</div>
       ) : (
         children
       )}

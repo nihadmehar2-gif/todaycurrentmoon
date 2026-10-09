@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="en" class="dark"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/01e4147cff8141ee-s.p.3huc2loe0ie8a.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/_next/static/chunks/1uimw245k_pij.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/chunks/2tnxo938zk8hp.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/0jvhpaew_uadu.js"/><script src="/_next/static/chunks/19mx3mg6lkumu.js" async=""></script><script src="/_next/static/chunks/3_n-l-kdrdwmt.js" async=""></script><script src="/_next/static/chunks/1eh83f1trsv72.js" async=""></script><script src="/_next/static/chunks/turbopack-2d2cd21ft-fd4.js" async=""></script><script src="/_next/static/chunks/3-pcfqa33j059.js" async=""></script><script src="/_next/static/chunks/1ac73_b273qjg.js" async=""></script><script src="/_next/static/chunks/0e_29mlrafn6y.js" async=""></script><script src="/_next/static/chunks/1_v62zwhyvwh7.js" async=""></script><script src="/_next/static/chunks/0fv185txgw2br.js" async=""></script><link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-PYHWGSM864" as="script"/><meta name="next-size-adjust" content=""/><title>Current Moon Phase Emoji — Live Lunar Phase &amp; Symbol Guide</title><meta name="description" content="See the current moon phase emoji, tonight&#x27;s illumination, and the countdown to the next full moon. Live lunar phase calculator updated every minute from U.S. Naval Observatory data."/><meta name="application-name" content="Moon Phase Emoji"/><meta name="author" content="Jacob Moses"/><meta name="keywords" content="current moon phase emoji,moon phase today,lunar phase,moon emoji,full moon,new moon,moon phase calendar,moon illumination"/><meta name="creator" content="Jacob Moses"/><meta name="publisher" content="Moon Phase Emoji"/><meta name="robots" content="index, follow"/><meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1"/><meta name="category" content="science"/><link rel="canonical" href="https://moonphaseemoji.com"/><meta name="google-site-verification" content="77nZt9ht0W7aKD6iTuegi-J7fzbb74UZqlpk9GUfWmw"/><meta property="og:title" content="Current Moon Phase Emoji — Live Lunar Phase &amp; Symbol Guide"/><meta property="og:description" content="See the current moon phase emoji, tonight&#x27;s illumination, and the countdown to the next full moon. Live lunar phase calculator updated every minute."/><meta property="og:url" content="https://moonphaseemoji.com"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Current Moon Phase Emoji — Live Lunar Phase &amp; Symbol Guide"/><meta name="twitter:description" content="See the current moon phase emoji, tonight&#x27;s illumination, and the countdown to the next full moon."/><link rel="shortcut icon" href="/favicon.svg"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="icon" href="/icon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/icon.svg"/><script src="/_next/static/chunks/0cz1d0mv5g_q7.js" noModule=""></script></head><body class="inter_7b064e0d-module__MOT0tq__variable cormorant_garamond_bb673f00-module___okMVa__variable antialiased bg-background text-foreground"><div hidden=""><!--$--><!--/$--></div><div aria-hidden="true" class="cosmic-bg animate-nebula"><div class="absolute inset-0 opacity-70" style="background:radial-gradient(ellipse 60% 50% at 15% 25%, rgba(183, 109, 143, 0.18), transparent 60%)"></div><div class="absolute inset-0 opacity-70" style="background:radial-gradient(ellipse 50% 40% at 85% 60%, rgba(126, 196, 207, 0.16), transparent 60%)"></div><div class="stars-layer opacity-60" style="background-size:300px 300px"></div><div class="stars-layer opacity-80" style="background-size:500px 500px;animation-delay:1.5s"></div><div class="stars-layer opacity-100" style="background-size:700px 700px;animation-delay:0.7s"></div><div class="cosmic-grain"></div></div><div class="relative flex min-h-screen flex-col pb-28 sm:pb-24"><header class="sticky top-0 z-50 w-full transition-all duration-500 border-b border-transparent bg-transparent"><nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Primary"><a class="flex items-center gap-2 transition-opacity hover:opacity-90" aria-label="Moon Phase Emoji — home" href="/"><span class="inline-flex h-9 w-9 items-center justify-center rounded-full" style="background:radial-gradient(circle at 50% 50%, rgba(245,197,66,0.5), transparent 70%)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon h-5 w-5 text-[#f5c542]" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg></span><span class="hidden font-display text-xl font-semibold tracking-wide sm:inline" style="color:#f5f0e8">Moon Phase Emoji</span></a><ul class="hidden items-center gap-1 lg:flex"><li><a class="rounded-md px-3 py-2 text-sm font-medium transition-colors text-[#f5c542]" style="color:#f5c542" href="/">Home</a></li><li><a class="rounded-md px-3 py-2 text-sm font-medium transition-colors text-pearl hover:text-[#f5c542]" href="/about">About</a></li><li><a class="rounded-md px-3 py-2 text-sm font-medium transition-colors text-pearl hover:text-[#f5c542]" href="/contact">Contact</a></li><li><a class="rounded-md px-3 py-2 text-sm font-medium transition-colors text-pearl hover:text-[#f5c542]" href="/privacy-policy">Privacy</a></li><li><a class="rounded-md px-3 py-2 text-sm font-medium transition-colors text-pearl hover:text-[#f5c542]" href="/terms">Terms</a></li><li><a class="rounded-md px-3 py-2 text-sm font-medium transition-colors text-pearl hover:text-[#f5c542]" href="/disclaimer">Disclaimer</a></li><li><a class="rounded-md px-3 py-2 text-sm font-medium transition-colors text-pearl hover:text-[#f5c542]" href="/sources">Sources</a></li></ul><button data-slot="sheet-trigger" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*=&#x27;size-&#x27;])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 lg:hidden" aria-label="Open navigation menu" type="button" aria-haspopup="dialog" aria-expanded="false" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button></nav></header><div class="border-b border-amber-300/10 bg-[#0a0420]/40 py-3"><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><aside class="ad-slot flex flex-col items-center justify-center mx-auto" aria-label="Advertisement" role="complementary"><span class="mb-1 text-[10px] uppercase tracking-widest text-[#9c8cba]/70">Advertisement</span><iframe srcDoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;style&gt;
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+  }
+  #ad-fallback {
+    color: #9c8cba;
+    font-size: 11px;
+    text-align: center;
+    padding: 8px;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;ad-fallback&quot;&gt;Loading ad…&lt;/div&gt;
+&lt;script&gt;
+  // Remove fallback once the ad script runs
+  (function(){
+    var observer = new MutationObserver(function(){
+      var fb = document.getElementById(&#x27;ad-fallback&#x27;);
+      if (fb &amp;&amp; document.body.children.length &gt; 1) {
+        fb.style.display = &#x27;none&#x27;;
+      }
+    });
+    observer.observe(document.body, { childNodes: true, subtree: true });
+    setTimeout(function(){ observer.disconnect(); }, 5000);
+  })();
+&lt;/script&gt;
+&lt;script&gt;
+  atOptions = {
+    &#x27;key&#x27; : &#x27;7c6723eb78f85e029f2622b8b4d94239&#x27;,
+    &#x27;format&#x27; : &#x27;iframe&#x27;,
+    &#x27;height&#x27; : 90,
+    &#x27;width&#x27; : 728,
+    &#x27;params&#x27; : {}
+  };
+&lt;/script&gt;
+&lt;script src=&quot;https://www.highrevenueformat.com/7c6723eb78f85e029f2622b8b4d94239/invoke.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;" title="Advertisement 728x90" width="728" height="90" loading="lazy" style="border:none;max-width:100%;background:transparent;display:block" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms" referrerPolicy="no-referrer-when-downgrade"></iframe></aside></div></div><main class="flex-1"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Moon Phase Emoji","url":"https://moonphaseemoji.com","description":"Discover the current moon phase emoji, the live lunar cycle, illumination, and the next full moon countdown.","inLanguage":"en","potentialAction":{"@type":"SearchAction","target":"https://moonphaseemoji.com/?q={search_term_string}","query-input":"required name=search_term_string"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the current moon phase emoji?","acceptedAnswer":{"@type":"Answer","text":"The current moon phase emoji is the Unicode glyph that matches tonight's Moon phase, calculated live using the standard synodic-month algorithm. The eight canonical phases map to 🌑 (new), 🌒 (waxing crescent), 🌓 (first quarter), 🌔 (waxing gibbous), 🌕 (full), 🌖 (waning gibbous), 🌗 (last quarter), and 🌘 (waning crescent). The hero at the top of this page shows the one that matches right now, and the value updates every minute while the page is open."}},{"@type":"Question","name":"How is the moon phase calculated?","acceptedAnswer":{"@type":"Answer","text":"We compute the Moon's age by measuring the time between now and a known reference new Moon — 2000-01-06 18:14 UTC — then dividing by the synodic month length of 29.530588853 days. The fractional remainder maps to one of the eight named phases. This is the same approach the U.S. Naval Observatory uses in its phase tables, so the dates you see here align with their published astronomical data service."}},{"@type":"Question","name":"Why are there exactly eight moon phase emojis?","acceptedAnswer":{"@type":"Answer","text":"The Unicode standard reserves a contiguous block (U+1F311 through U+1F318) for the eight principal moon phases. These correspond to the eight waypoints of the 29.53-day synodic cycle: new, waxing crescent, first quarter, waxing gibbous, full, waning gibbous, last quarter, and waning crescent. Between these waypoints the Moon is technically in transition, but for everyday reference these eight glyphs cover every night of the cycle."}},{"@type":"Question","name":"How often does the moon phase emoji change?","acceptedAnswer":{"@type":"Answer","text":"On average, a new named phase begins every 3.69 days (29.53 divided by 8), but the exact interval varies slightly because the Moon's orbit is elliptical. The hero glyph on this page is recomputed every minute, so you'll see it shift within a few hours of the true phase transition. If you keep the page open across midnight, the day's symbol will reflect the latest calculation."}},{"@type":"Question","name":"What does illumination percentage mean?","acceptedAnswer":{"@type":"Answer","text":"Illumination is the fraction of the Moon's Earth-facing disc lit by the Sun at a given moment. It runs from 0 percent at new Moon to 100 percent at full Moon, following a cosine curve. Note that illumination does not equal apparent brightness — even a 10 percent crescent can look striking against a dark sky because our eyes adapt to low light."}},{"@type":"Question","name":"Why does the moon sometimes appear during the day?","acceptedAnswer":{"@type":"Answer","text":"The Moon is above the horizon for roughly twelve hours out of every twenty-four, just like the Sun. Depending on its phase, those hours overlap with daytime or nighttime. A first-quarter Moon, for instance, rises around noon and sets around midnight, so you'll often catch it high in the afternoon sky. A full Moon, by contrast, rises near sunset and stays up all night."}},{"@type":"Question","name":"What is the difference between waxing and waning?","acceptedAnswer":{"@type":"Answer","text":"Waxing means the illuminated portion of the Moon is growing each night, moving from new Moon toward full Moon — the right limb (in the Northern Hemisphere) is lit and the left limb is dark. Waning means the illuminated portion is shrinking, moving from full Moon back toward new Moon — the opposite limb lights up. The terms come from old English and Latin roots meaning 'to grow' and 'to diminish' respectively."}},{"@type":"Question","name":"Is the moon phase the same everywhere on Earth?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Moon's phase depends only on the Sun-Earth-Moon geometry, which is effectively identical for everyone on the planet at the same instant. The clock time at which you see the phase change will differ by time zone, but the phase itself is universal. Our calculator uses your local time, then converts to UTC for the standard reference calculation."}}]}</script><section aria-labelledby="hero-heading" class="relative mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-20 lg:px-8"><div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_1fr]"><div class="order-2 lg:order-1"><div style="opacity:0;transform:translateY(16px)"><span class="eyebrow">Live lunar phase · updated every minute</span><h1 id="hero-heading" class="mt-5 font-display text-5xl font-semibold leading-[1.05] text-[#f5f0e8] headline-glow sm:text-6xl lg:text-7xl">Your<!-- --> <span class="gradient-gold">current moon phase emoji</span>, right now</h1><p class="mt-6 max-w-xl text-lg leading-relaxed text-[#c4b9d6]">Tonight&#x27;s Moon has a name, a glyph, and a story. We calculate the live lunar phase using the same synodic-month method the U.S. Naval Observatory publishes — then we pair it with the Unicode moon phase emoji so the symbol you see matches the sky.</p><div class="mt-8 flex flex-wrap gap-3"><a class="inline-flex h-11 items-center justify-center rounded-md bg-[#f5c542] px-6 text-sm font-semibold text-[#1a0b3d] transition-colors hover:bg-[#f8d77a]" href="#current-phase">See tonight&#x27;s details</a><a class="inline-flex h-11 items-center justify-center rounded-md border border-amber-300/30 px-6 text-sm font-medium text-[#f5f0e8] transition-colors hover:border-amber-300/60 hover:bg-amber-300/5" href="#phases">Browse the 8 phases</a></div></div></div><div class="order-1 flex justify-center lg:order-2"><div class="flex flex-col items-center gap-4 py-12"><div class="h-32 w-32 animate-pulse rounded-full" style="background:radial-gradient(circle at 50% 50%, rgba(245,197,66,0.25), transparent 70%)"></div><p class="text-sm text-[#c4b9d6]">Calculating tonight&#x27;s moon phase…</p></div></div></div></section><section class="mx-auto -mt-4 mb-12 max-w-7xl px-4 sm:px-6 lg:px-8"><div class="flex justify-center lg:justify-end"><div class="hidden lg:block"><aside class="ad-slot flex flex-col items-center justify-center mx-auto" aria-label="Advertisement" role="complementary"><span class="mb-1 text-[10px] uppercase tracking-widest text-[#9c8cba]/70">Advertisement</span><iframe srcDoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;style&gt;
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+  }
+  #ad-fallback {
+    color: #9c8cba;
+    font-size: 11px;
+    text-align: center;
+    padding: 8px;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;ad-fallback&quot;&gt;Loading ad…&lt;/div&gt;
+&lt;script&gt;
+  // Remove fallback once the ad script runs
+  (function(){
+    var observer = new MutationObserver(function(){
+      var fb = document.getElementById(&#x27;ad-fallback&#x27;);
+      if (fb &amp;&amp; document.body.children.length &gt; 1) {
+        fb.style.display = &#x27;none&#x27;;
+      }
+    });
+    observer.observe(document.body, { childNodes: true, subtree: true });
+    setTimeout(function(){ observer.disconnect(); }, 5000);
+  })();
+&lt;/script&gt;
+&lt;script&gt;
+  atOptions = {
+    &#x27;key&#x27; : &#x27;be62dbe03434f8ff9d36359f92b27f30&#x27;,
+    &#x27;format&#x27; : &#x27;iframe&#x27;,
+    &#x27;height&#x27; : 250,
+    &#x27;width&#x27; : 300,
+    &#x27;params&#x27; : {}
+  };
+&lt;/script&gt;
+&lt;script src=&quot;https://www.highrevenueformat.com/be62dbe03434f8ff9d36359f92b27f30/invoke.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;" title="Advertisement 300x250" width="300" height="250" loading="lazy" style="border:none;max-width:100%;background:transparent;display:block" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms" referrerPolicy="no-referrer-when-downgrade"></iframe></aside></div></div></section><section id="current-phase" aria-labelledby="current-phase-heading" class="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8"><div class="max-w-3xl"><span class="eyebrow">Tonight, in detail</span><h2 class="mt-4 font-display text-3xl font-semibold leading-tight text-[#f5f0e8] sm:text-4xl md:text-5xl">The current moon phase, decoded</h2><p class="mt-5 text-base leading-relaxed text-[#c4b9d6] sm:text-lg">The hero above shows the live glyph. Here we break down what the Moon is doing right now — illumination, age, and how long until the next major phase. These figures refresh every minute while you keep this page open, so the numbers stay aligned with the sky outside.</p></div><div class="mt-10 glass-card rounded-2xl p-6 sm:p-10" style="opacity:0;transform:translateY(24px)"><div class="flex flex-col items-center gap-4 py-12"><div class="h-32 w-32 animate-pulse rounded-full" style="background:radial-gradient(circle at 50% 50%, rgba(245,197,66,0.25), transparent 70%)"></div><p class="text-sm text-[#c4b9d6]">Calculating tonight&#x27;s moon phase…</p></div><div class="mt-10 grid grid-cols-1 gap-6 border-t border-amber-300/15 pt-8 md:grid-cols-3"><div><h3 class="font-display text-xl font-semibold text-[#f5c542]">What the illumination means</h3><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">Illumination is the percentage of the Moon&#x27;s Earth-facing disc that is lit by the Sun. Zero means new Moon, fifty means quarter, one hundred means full. The number doesn&#x27;t reflect apparent brightness — the Moon looks brilliant even at a thin crescent because we see it against a dark sky.</p></div><div><h3 class="font-display text-xl font-semibold text-[#f5c542]">Why age matters</h3><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">Moon age is the number of days since the most recent new Moon. Because the synodic month is 29.53 days long, age ranges from zero to about 29.5. The age helps you place the current Moon phase within the cycle — a five-day-old Moon is a waxing crescent, a fourteen-day-old Moon is near full.</p></div><div><h3 class="font-display text-xl font-semibold text-[#f5c542]">Reading the countdown</h3><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">The countdown targets whichever major phase is sooner: the next new Moon or the next full Moon. The U.S. Naval Observatory publishes these dates years in advance, and our calculation is aligned with their tables. Times are approximate to the nearest hour because the true moment of phase change depends on your observing location.</p></div></div></div></section><section class="mx-auto my-12 max-w-4xl px-4 sm:px-6 lg:px-8"><aside class="ad-slot flex flex-col items-center justify-center mx-auto" aria-label="Advertisement" role="complementary"><span class="mb-1 text-[10px] uppercase tracking-widest text-[#9c8cba]/70">Advertisement</span><iframe srcDoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;style&gt;
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+  }
+  #ad-fallback {
+    color: #9c8cba;
+    font-size: 11px;
+    text-align: center;
+    padding: 8px;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;ad-fallback&quot;&gt;Loading ad…&lt;/div&gt;
+&lt;script&gt;
+  // Remove fallback once the ad script runs
+  (function(){
+    var observer = new MutationObserver(function(){
+      var fb = document.getElementById(&#x27;ad-fallback&#x27;);
+      if (fb &amp;&amp; document.body.children.length &gt; 1) {
+        fb.style.display = &#x27;none&#x27;;
+      }
+    });
+    observer.observe(document.body, { childNodes: true, subtree: true });
+    setTimeout(function(){ observer.disconnect(); }, 5000);
+  })();
+&lt;/script&gt;
+&lt;script&gt;
+  atOptions = {
+    &#x27;key&#x27; : &#x27;7c6723eb78f85e029f2622b8b4d94239&#x27;,
+    &#x27;format&#x27; : &#x27;iframe&#x27;,
+    &#x27;height&#x27; : 90,
+    &#x27;width&#x27; : 728,
+    &#x27;params&#x27; : {}
+  };
+&lt;/script&gt;
+&lt;script src=&quot;https://www.highrevenueformat.com/7c6723eb78f85e029f2622b8b4d94239/invoke.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;" title="Advertisement 728x90" width="728" height="90" loading="lazy" style="border:none;max-width:100%;background:transparent;display:block" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms" referrerPolicy="no-referrer-when-downgrade"></iframe></aside></section><section id="phases" aria-labelledby="phases-heading" class="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8"><div class="max-w-3xl"><span class="eyebrow">The eight waypoints</span><h2 class="mt-4 font-display text-3xl font-semibold leading-tight text-[#f5f0e8] sm:text-4xl md:text-5xl">The 8 moon phases, in order</h2><p class="mt-5 text-base leading-relaxed text-[#c4b9d6] sm:text-lg">Every synodic month — 29.53 days — the Moon cycles through eight named phases, each marked by its own Unicode glyph. The grid below shows them in cycle order, with the illumination percentage and a short description for each. Most calendar apps print one of these eight symbols per night.</p></div><div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌑</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->1</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">New Moon</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->0%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">The Moon is positioned between Earth and the Sun, leaving its near side in shadow. The cycle begins here, traditionally a moment for setting intentions.</p></article><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌒</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->2</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">Waxing Crescent</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->~25%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">A thin sliver of light appears on the western limb of the Moon. Each evening the illuminated portion grows, visible just after sunset.</p></article><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌓</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->3</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">First Quarter</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->50%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">Exactly half of the near side is illuminated. The Moon has completed one-quarter of its orbit since the last new Moon.</p></article><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌔</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->4</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">Waxing Gibbous</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->~75%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">More than half-lit and still waxing, the Moon rises in the east during late afternoon and stays visible through most of the night.</p></article><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌕</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->5</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">Full Moon</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->100%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">The Moon and Sun sit on opposite sides of Earth, fully illuminating the near side. Full Moons rise near sunset and set near sunrise.</p></article><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌖</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->6</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">Waning Gibbous</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->~75%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">Illumination begins to recede. The Moon rises later each evening, and the lit portion shrinks from the western limb.</p></article><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌗</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->7</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">Last Quarter</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->50%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">The opposite half is lit compared to first quarter. The Moon now rises around midnight and sets around noon.</p></article><article class="glass-card glass-card-hover group flex flex-col items-center rounded-2xl p-6 text-center transition-all" style="opacity:0;transform:translateY(20px)"><div class="flex h-20 w-20 items-center justify-center rounded-full text-4xl" style="background:radial-gradient(circle at 30% 30%, rgba(245,197,66,0.18), rgba(26,11,61,0.55) 60%);border:1px solid rgba(245,197,66,0.25)"><span class="transition-transform duration-500 group-hover:scale-110" aria-hidden="true">🌘</span></div><p class="mt-4 text-xs font-medium uppercase tracking-widest text-[#9c8cba]">Phase <!-- -->8</p><h3 class="mt-1 font-display text-xl font-semibold text-[#f5c542]">Waning Crescent</h3><p class="mt-1 text-xs font-medium text-[#f5c542]/80">Illumination: <!-- -->~25%</p><p class="mt-3 text-sm leading-relaxed text-[#c4b9d6]">A thin crescent returns, visible low in the eastern sky just before dawn. The cycle is nearly complete.</p></article></div><p class="mt-8 max-w-3xl text-sm leading-relaxed text-[#9c8cba]">The phase table you see above is a simplification of a continuous process — the Moon doesn&#x27;t snap from one symbol to the next but gradually morphs. The 8 phases correspond to the 8 standard waypoints used by astronomers and almanac compilers worldwide, including the U.S. Naval Observatory. The Unicode emoji set was designed to mirror these waypoints one-to-one.</p></section><section class="mx-auto my-12 max-w-4xl px-4 sm:px-6 lg:px-8"><aside class="ad-slot flex flex-col items-center justify-center mx-auto" aria-label="Advertisement" role="complementary"><span class="mb-1 text-[10px] uppercase tracking-widest text-[#9c8cba]/70">Advertisement</span><iframe srcDoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;style&gt;
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+  }
+  #ad-fallback {
+    color: #9c8cba;
+    font-size: 11px;
+    text-align: center;
+    padding: 8px;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;ad-fallback&quot;&gt;Loading ad…&lt;/div&gt;
+&lt;script&gt;
+  // Remove fallback once the ad script runs
+  (function(){
+    var observer = new MutationObserver(function(){
+      var fb = document.getElementById(&#x27;ad-fallback&#x27;);
+      if (fb &amp;&amp; document.body.children.length &gt; 1) {
+        fb.style.display = &#x27;none&#x27;;
+      }

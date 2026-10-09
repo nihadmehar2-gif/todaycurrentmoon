@@ -10,27 +10,19 @@ import { cn } from "@/lib/utils";
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 interface MoonCalendarProps {
-  /** Optional initial month anchor. */
   initial?: Date;
-  /** Compact mode shows fewer details. */
   compact?: boolean;
 }
 
 /**
  * Interactive month calendar. Each day cell shows the moon phase emoji
  * computed from the real lunar algorithm, plus the illumination percent.
- *
- * The displayed month is derived from "today" plus a month offset, which
- * keeps SSR output stable (no setState-in-effect for the initial month).
  */
 export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
   const mounted = useMounted();
   const [offset, setOffset] = useState(0);
 
-  const today = useMemo(
-    () => (mounted ? new Date() : null),
-    [mounted],
-  );
+  const today = useMemo(() => (mounted ? new Date() : null), [mounted]);
 
   const cursor = useMemo(() => {
     if (initial) return new Date(initial.getFullYear(), initial.getMonth(), 1);
@@ -79,7 +71,7 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
             {monthLabel}
           </h3>
           {!compact && (
-            <p className="text-xs text-violet-100/60 mt-0.5">
+            <p className="text-xs text-slate-300/60 mt-0.5">
               Each day shows the moon phase for that date.
             </p>
           )}
@@ -90,7 +82,7 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
             size="icon"
             onClick={prevMonth}
             aria-label="Previous month"
-            className="text-violet-100 hover:bg-white/10 hover:text-white"
+            className="text-indigo-100 hover:bg-white/10 hover:text-white"
           >
             <ChevronLeft className="w-5 h-5" />
           </Button>
@@ -98,7 +90,7 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
             variant="ghost"
             size="sm"
             onClick={goToday}
-            className="text-violet-100 hover:bg-white/10 hover:text-white"
+            className="text-indigo-100 hover:bg-white/10 hover:text-white"
           >
             Today
           </Button>
@@ -107,7 +99,7 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
             size="icon"
             onClick={nextMonth}
             aria-label="Next month"
-            className="text-violet-100 hover:bg-white/10 hover:text-white"
+            className="text-indigo-100 hover:bg-white/10 hover:text-white"
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
@@ -118,7 +110,7 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
         {WEEKDAYS.map((d) => (
           <div
             key={d}
-            className="text-center text-[10px] sm:text-xs font-medium uppercase tracking-wide text-violet-200/60 py-1"
+            className="text-center text-[10px] sm:text-xs font-medium uppercase tracking-wide text-indigo-200/60 py-1"
           >
             {d}
           </div>
@@ -138,7 +130,7 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
                 "aspect-square rounded-xl flex flex-col items-center justify-center gap-0.5 transition-colors",
                 "bg-white/[0.03] hover:bg-white/[0.08] border border-white/5",
                 isToday(cell.day) &&
-                  "ring-1 ring-violet-300/60 bg-violet-400/10",
+                  "ring-1 ring-indigo-300/60 bg-indigo-400/10",
               )}
               title={`${cell.date.toDateString()} - ${phase.name} (${Math.round(
                 phase.illumination * 100,
@@ -147,11 +139,11 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
               <span className="text-base sm:text-xl leading-none">
                 {phase.emoji}
               </span>
-              <span className="text-[9px] sm:text-[11px] text-violet-100/70 tabular-nums">
+              <span className="text-[9px] sm:text-[11px] text-slate-300/70 tabular-nums">
                 {cell.day}
               </span>
               {!compact && (
-                <span className="hidden sm:block text-[8px] text-violet-200/40 tabular-nums">
+                <span className="hidden sm:block text-[8px] text-slate-400/50 tabular-nums">
                   {Math.round(phase.illumination * 100)}%
                 </span>
               )}
@@ -160,13 +152,12 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
         })}
       </div>
 
-      {/* Legend */}
       <div className="mt-4 pt-4 border-t border-white/10">
         <div className="flex flex-wrap gap-x-4 gap-y-2 justify-center">
           {PHASE_CATALOG.map((p) => (
             <div
               key={p.key}
-              className="flex items-center gap-1.5 text-[11px] text-violet-100/60"
+              className="flex items-center gap-1.5 text-[11px] text-slate-300/60"
             >
               <span className="text-sm">{p.emoji}</span>
               {p.name}

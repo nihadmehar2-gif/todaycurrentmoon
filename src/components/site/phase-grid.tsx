@@ -11,16 +11,16 @@ export function PhaseGrid() {
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {PHASE_CATALOG.map((phase, i) => (
         <Reveal key={phase.key} delay={i * 0.05}>
-          <Card className="glass h-full p-5 rounded-2xl border-white/10 hover:border-violet-300/30 transition-colors group">
+          <Card className="glass h-full p-5 rounded-2xl border-white/10 hover:border-indigo-300/30 transition-colors group">
             <div className="flex items-center justify-center mb-4">
               <div className="relative">
                 <div
-                  className="absolute inset-0 rounded-full bg-violet-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute inset-0 rounded-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"
                   aria-hidden
                 />
                 <MoonVisual
                   phase={phase.demoFraction}
-                  size={110}
+                  size={108}
                   glow={false}
                 />
               </div>
@@ -33,7 +33,7 @@ export function PhaseGrid() {
                 {phase.name}
               </h3>
             </div>
-            <p className="text-sm text-violet-100/70 leading-relaxed">
+            <p className="text-sm text-slate-300/75 leading-relaxed">
               {phase.short}
             </p>
           </Card>

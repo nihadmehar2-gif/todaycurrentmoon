@@ -88,7 +88,7 @@ export function MoonPhasesPage() {
           <h2 className="font-display text-2xl font-semibold text-white">
             A quick tour of the cycle
           </h2>
-          <p className="text-violet-100/70 leading-relaxed mt-2">
+          <p className="text-slate-300/80 leading-relaxed mt-2">
             The cycle starts in darkness at the new moon. Light grows on the
             right side through crescent, first quarter, and gibbous, until the
             full moon lights the whole disk. Then the light shrinks back through
@@ -120,23 +120,23 @@ export function MoonPhasesPage() {
                         {phase.name}
                       </h3>
                     </div>
-                    <p className="text-xs text-violet-200/60 mb-3">
+                    <p className="text-xs text-indigo-200/60 mb-3">
                       {detail.when}
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <div className="text-[11px] uppercase tracking-wide text-violet-300/80 mb-1">
+                        <div className="text-[11px] uppercase tracking-wide text-indigo-300/80 mb-1">
                           What you see
                         </div>
-                        <p className="text-sm text-violet-100/75 leading-relaxed">
+                        <p className="text-sm text-slate-300/80 leading-relaxed">
                           {detail.look}
                         </p>
                       </div>
                       <div>
-                        <div className="text-[11px] uppercase tracking-wide text-violet-300/80 mb-1">
+                        <div className="text-[11px] uppercase tracking-wide text-indigo-300/80 mb-1">
                           What it means
                         </div>
-                        <p className="text-sm text-violet-100/75 leading-relaxed">
+                        <p className="text-sm text-slate-300/80 leading-relaxed">
                           {detail.meaning}
                         </p>
                       </div>
@@ -154,7 +154,7 @@ export function MoonPhasesPage() {
           <h2 className="font-display text-2xl font-semibold text-white mb-3">
             A note on the cycle length
           </h2>
-          <p className="text-violet-100/75 leading-relaxed">
+          <p className="text-slate-300/80 leading-relaxed">
             The lunar cycle is about 29.53 days from one new moon to the next.
             This is called the synodic month. Because it is not a whole number,
             the moon phases drift across the calendar from month to month. That

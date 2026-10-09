@@ -24,17 +24,15 @@ export function LunarCycle() {
             role="img"
             aria-label="Diagram of the lunar cycle showing eight phases around a ring"
           >
-            {/* Faint guide ring */}
             <circle
               cx={cx}
               cy={cy}
               r={ringRadius}
               fill="none"
-              stroke="rgba(196,181,253,0.18)"
+              stroke="rgba(165,180,252,0.18)"
               strokeWidth="1"
               strokeDasharray="3 5"
             />
-            {/* Direction arrows (waxing top, waning bottom) */}
             <defs>
               <marker
                 id="arrow"
@@ -44,37 +42,35 @@ export function LunarCycle() {
                 refY="4"
                 orient="auto"
               >
-                <path d="M0,0 L8,4 L0,8 Z" fill="rgba(196,181,253,0.5)" />
+                <path d="M0,0 L8,4 L0,8 Z" fill="rgba(165,180,252,0.5)" />
               </marker>
             </defs>
-            {/* Waxing arrow (clockwise on the right half top) */}
             <path
               d={`M ${cx + ringRadius * 0.92} ${cy - ringRadius * 0.38} A ${ringRadius} ${ringRadius} 0 0 1 ${cx + ringRadius * 0.38} ${cy - ringRadius * 0.92}`}
               fill="none"
-              stroke="rgba(196,181,253,0.4)"
+              stroke="rgba(165,180,252,0.4)"
               strokeWidth="1.5"
               markerEnd="url(#arrow)"
             />
             <text
               x={cx + ringRadius + 18}
               y={cy - ringRadius + 6}
-              fill="rgba(196,181,253,0.7)"
+              fill="rgba(199,210,254,0.7)"
               fontSize="11"
-              fontFamily="var(--font-geist-sans)"
+              fontFamily="var(--font-sans)"
             >
               Waxing
             </text>
             <text
               x={cx - ringRadius - 50}
               y={cy + ringRadius + 6}
-              fill="rgba(196,181,253,0.7)"
+              fill="rgba(199,210,254,0.7)"
               fontSize="11"
-              fontFamily="var(--font-geist-sans)"
+              fontFamily="var(--font-sans)"
             >
               Waning
             </text>
 
-            {/* Center label */}
             <text
               x={cx}
               y={cy - 6}
@@ -90,17 +86,16 @@ export function LunarCycle() {
               x={cx}
               y={cy + 14}
               textAnchor="middle"
-              fill="rgba(196,181,253,0.6)"
+              fill="rgba(165,180,252,0.6)"
               fontSize="11"
-              fontFamily="var(--font-geist-sans)"
+              fontFamily="var(--font-sans)"
             >
               29.53 days
             </text>
           </svg>
 
-          {/* Position the 8 phase moons around the ring with HTML for crisp text. */}
           {PHASE_CATALOG.map((phase, i) => {
-            const angle = (i / 8) * 2 * Math.PI - Math.PI / 2; // start at top
+            const angle = (i / 8) * 2 * Math.PI - Math.PI / 2;
             const x = cx + Math.cos(angle) * ringRadius;
             const y = cy + Math.sin(angle) * ringRadius;
             const leftPct = (x / size) * 100;
@@ -120,14 +115,14 @@ export function LunarCycle() {
                   size={moonSize}
                   glow={false}
                 />
-                <span className="text-[10px] text-violet-100/70 text-center leading-tight">
+                <span className="text-[10px] text-slate-300/70 text-center leading-tight">
                   {phase.name}
                 </span>
               </div>
             );
           })}
         </div>
-        <p className="text-center text-sm text-violet-100/60 mt-5 max-w-md">
+        <p className="text-center text-sm text-slate-300/65 mt-5 max-w-md">
           The Moon moves all the way around Earth in about 29.5 days. We see the
           same eight shapes in the same order, cycle after cycle.
         </p>
