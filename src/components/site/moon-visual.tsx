@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { getLitPath, getPhaseEmoji } from "@/lib/moon";
 import { useToast } from "@/hooks/use-toast";
 
@@ -191,6 +191,12 @@ function renderMoon(
 function MoonSvg({ phase, size }: { phase: number; size: number }) {
   const R = 100;
   const litPath = getLitPath(phase, R);
+  // Unique IDs so multiple moons on one page don't collide.
+  const rawId = useId();
+  const uid = rawId.replace(/[:]/g, "");
+  const litId = `moon-lit-fb-${uid}`;
+  const darkId = `moon-dark-fb-${uid}`;
+  const clipId = `moon-clip-fb-${uid}`;
   return (
     <svg
       viewBox="-120 -120 240 240"
@@ -202,24 +208,24 @@ function MoonSvg({ phase, size }: { phase: number; size: number }) {
       )} percent illumination`}
     >
       <defs>
-        <radialGradient id="moon-lit-fb" cx="34%" cy="30%" r="82%">
+        <radialGradient id={litId} cx="34%" cy="30%" r="82%">
           <stop offset="0%" stopColor="#fff8e6" />
           <stop offset="40%" stopColor="#f5ead0" />
           <stop offset="74%" stopColor="#d9c89a" />
           <stop offset="100%" stopColor="#9c8a5a" />
         </radialGradient>
-        <radialGradient id="moon-dark-fb" cx="68%" cy="70%" r="85%">
+        <radialGradient id={darkId} cx="68%" cy="70%" r="85%">
           <stop offset="0%" stopColor="#1a2a3a" />
           <stop offset="60%" stopColor="#0e1828" />
           <stop offset="100%" stopColor="#080c1c" />
         </radialGradient>
-        <clipPath id="moon-clip-fb">
+        <clipPath id={clipId}>
           <circle cx="0" cy="0" r={R} />
         </clipPath>
       </defs>
-      <circle cx="0" cy="0" r={R} fill="url(#moon-dark-fb)" />
-      <g clipPath="url(#moon-clip-fb)">
-        {litPath && <path d={litPath} fill="url(#moon-lit-fb)" />}
+      <circle cx="0" cy="0" r={R} fill={`url(#${darkId})`} />
+      <g clipPath={`url(#${clipId})`}>
+        {litPath && <path d={litPath} fill={`url(#${litId})`} />}
       </g>
       <circle cx="0" cy="0" r={R} fill="none" stroke="rgba(0,0,0,0.5)" strokeWidth="0.6" />
     </svg>
