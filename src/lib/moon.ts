@@ -105,6 +105,11 @@ export function getPhaseKey(phaseFraction: number): PhaseKey {
   return segments[idx][1];
 }
 
+/** Returns the emoji for a given phase fraction (0..1). */
+export function getPhaseEmoji(phaseFraction: number): string {
+  return PHASE_EMOJI[getPhaseKey(phaseFraction)];
+}
+
 /** Full phase information for a given date. */
 export function getMoonPhase(date: Date = new Date()): PhaseInfo {
   const phaseFraction = getPhaseFraction(date);

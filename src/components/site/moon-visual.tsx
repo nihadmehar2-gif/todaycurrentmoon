@@ -1,31 +1,33 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { getLitPath } from "@/lib/moon";
+import { useEffect, useRef, useState } from "react";
+import { getLitPath, getPhaseEmoji } from "@/lib/moon";
+import { useToast } from "@/hooks/use-toast";
 
 interface MoonVisualProps {
   phase: number;
   size?: number;
   glow?: boolean;
   className?: string;
+  /** Show the click-to-copy emoji affordance. Defaults to true. */
+  copyable?: boolean;
 }
 
 /*
-  Accurate, beautiful Moon renderer.
+  Beautiful, accurate Moon renderer.
   ----------------------------------
   Uses a real lunar surface photograph as the albedo map. Each pixel is
   shaded with a Lambertian factor derived from the ACTUAL sun direction
   for the current phase, so the lit side, terminator, and limb darkening
-  are all physically correct for every phase (crescent, quarter, gibbous,
-  full). The real surface detail (craters, maria, rays) shows through
-  with natural, phase-matched shading — no muddy bump-mapping, no flat
-  full-moon lighting on a crescent.
+  are all physically correct.
 
-  Sun direction (viewer at +z):
-    new moon      -> sun behind sphere   (-z)  -> dark disk + earthshine
-    first quarter -> sun from the right  (+x)  -> right half lit
-    full moon     -> sun behind viewer   (+z)  -> whole disk lit, limb darkened
-    last quarter  -> sun from the left   (-x)  -> left half lit
+  Stylized color grade (matching the reference aesthetic):
+    - Lit side: warm cream / pale gold (complementary warm tone)
+    - Dark side: teal-blue earthshine that shows the real surface texture
+
+  Double halo: a dark indigo inner ring + a warm amber outer glow.
+
+  Click the moon to copy the current phase emoji to the clipboard.
 
   Falls back to a phase-accurate SVG silhouette if canvas/texture fail.
 */
@@ -33,8 +35,8 @@ interface MoonVisualProps {
 const TEX = 640;
 
 interface MoonTexture {
-  albedo: Float32Array; // TEX*TEX*3 (linear RGB 0..1)
-  mask: Uint8Array; // 1 inside disk, 0 outside
+  albedo: Float32Array;
+  mask: Uint8Array;
   cx: number;
   cy: number;
   R: number;
@@ -48,8 +50,6 @@ function loadTexture(): Promise<MoonTexture | null> {
   if (cachedPromise) return cachedPromise;
   cachedPromise = new Promise((resolve) => {
     const img = new Image();
-    // Same-origin image; do NOT set crossOrigin (it triggers a CORS
-    // request that taints the canvas if the dev server omits CORS headers).
     img.onload = () => {
       try {
         resolve(buildTexture(img));
@@ -78,7 +78,6 @@ function buildTexture(img: HTMLImageElement): MoonTexture {
   const cx = (N - 1) / 2;
   const cy = (N - 1) / 2;
 
-  // Detect disk radius by scanning from center along +x.
   const lumAt = (x: number, y: number) => {
     const i = (y * N + x) * 4;
     return (src[i] + src[i + 1] + src[i + 2]) / 3;
@@ -98,14 +97,12 @@ function buildTexture(img: HTMLImageElement): MoonTexture {
       const dx = x - cx;
       const dy = y - cy;
       const d = Math.sqrt(dx * dx + dy * dy);
-      // Circular mask with a 1px anti-aliased edge.
       if (d > R + 1) {
         mask[idx] = 0;
         continue;
       }
       mask[idx] = 1;
       const si = idx * 4;
-      // Keep the photo's natural albedo and contrast (no lift, no wash-out).
       albedo[idx * 3] = src[si] / 255;
       albedo[idx * 3 + 1] = src[si + 1] / 255;
       albedo[idx * 3 + 2] = src[si + 2] / 255;
@@ -122,10 +119,8 @@ function smoothstep(e0: number, e1: number, x: number): number {
 }
 
 /**
- * Renders the Moon with accurate Lambertian shading from the phase-derived
- * sun direction. The real surface photo is multiplied by the light factor,
- * so the lit side, terminator, and limb darkening are all physically
- * correct. Earthshine fills the dark side with a soft blue-grey glow.
+ * Renders the Moon with accurate Lambertian shading and a stylized
+ * warm-cream lit side + teal-blue earthshine dark side.
  */
 function renderMoon(
   ctx: CanvasRenderingContext2D,
@@ -135,18 +130,22 @@ function renderMoon(
 ) {
   const N = TEX;
   const { albedo, mask, cx, cy, R } = tex;
-  // Sun direction from the phase. This is the real geometry: the phase
-  // angle equals the Moon's orbit angle, and the sun illuminates from
-  // the side that produces the observed lit fraction.
   const theta = 2 * Math.PI * phase;
   const sx = Math.sin(theta);
   const sy = 0;
   const sz = -Math.cos(theta);
   const data = imageData.data;
-  // Soft earthshine on the night side (blue-grey).
-  const eR = 0.05,
-    eG = 0.058,
-    eB = 0.082;
+
+  // Warm cream tint for the lit side (pale gold).
+  const litR = 1.16,
+    litG = 1.08,
+    litB = 0.86;
+  // Teal-blue tint for the earthshine dark side (shows surface texture).
+  const darkR = 0.16,
+    darkG = 0.24,
+    darkB = 0.4;
+  // Earthshine intensity (how much of the surface shows on the dark side).
+  const earthshine = 0.42;
 
   for (let y = 0; y < N; y++) {
     for (let x = 0; x < N; x++) {
@@ -159,22 +158,26 @@ function renderMoon(
         data[p + 3] = 0;
         continue;
       }
-      // Sphere surface normal (normalized).
       const nx = (x - cx) / R;
       const ny = (y - cy) / R;
       const r2 = nx * nx + ny * ny;
       const nz = Math.sqrt(Math.max(0, 1 - r2));
-      // Lambertian: dot of normal and sun direction.
       const lambert = nx * sx + ny * sy + nz * sz;
-      // Soft (penumbral) terminator.
       let intensity = smoothstep(-0.03, 0.16, lambert);
-      // Limb darkening (~30% darker at the limb vs center).
-      intensity *= 0.7 + 0.3 * nz;
-      const dark = 1 - intensity;
+      // Gentle limb darkening.
+      intensity *= 0.74 + 0.26 * nz;
       const ni = idx * 3;
-      const r = albedo[ni] * intensity + eR * dark;
-      const g = albedo[ni + 1] * intensity + eG * dark;
-      const b = albedo[ni + 2] * intensity + eB * dark;
+      const aR = albedo[ni];
+      const aG = albedo[ni + 1];
+      const aB = albedo[ni + 2];
+      // Lit side: warm cream color grade over the real surface.
+      // Dark side: teal-blue earthshine that keeps the surface texture visible.
+      const r =
+        aR * litR * intensity + aR * darkR * earthshine * (1 - intensity);
+      const g =
+        aG * litG * intensity + aG * darkG * earthshine * (1 - intensity);
+      const b =
+        aB * litB * intensity + aB * darkB * earthshine * (1 - intensity);
       data[p] = Math.min(255, r * 255);
       data[p + 1] = Math.min(255, g * 255);
       data[p + 2] = Math.min(255, b * 255);
@@ -184,7 +187,7 @@ function renderMoon(
   ctx.putImageData(imageData, 0, 0);
 }
 
-// ---------- SVG fallback (phase-accurate silhouette) ----------
+// ---------- SVG fallback ----------
 function MoonSvg({ phase, size }: { phase: number; size: number }) {
   const R = 100;
   const litPath = getLitPath(phase, R);
@@ -200,14 +203,14 @@ function MoonSvg({ phase, size }: { phase: number; size: number }) {
     >
       <defs>
         <radialGradient id="moon-lit-fb" cx="34%" cy="30%" r="82%">
-          <stop offset="0%" stopColor="#fffefb" />
-          <stop offset="40%" stopColor="#eef0ff" />
-          <stop offset="74%" stopColor="#c3cbef" />
-          <stop offset="100%" stopColor="#7e89c4" />
+          <stop offset="0%" stopColor="#fff8e6" />
+          <stop offset="40%" stopColor="#f5ead0" />
+          <stop offset="74%" stopColor="#d9c89a" />
+          <stop offset="100%" stopColor="#9c8a5a" />
         </radialGradient>
         <radialGradient id="moon-dark-fb" cx="68%" cy="70%" r="85%">
-          <stop offset="0%" stopColor="#1a2240" />
-          <stop offset="60%" stopColor="#0e1428" />
+          <stop offset="0%" stopColor="#1a2a3a" />
+          <stop offset="60%" stopColor="#0e1828" />
           <stop offset="100%" stopColor="#080c1c" />
         </radialGradient>
         <clipPath id="moon-clip-fb">
@@ -228,11 +231,13 @@ export function MoonVisual({
   size = 260,
   glow = true,
   className,
+  copyable = true,
 }: MoonVisualProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageDataRef = useRef<ImageData | null>(null);
-  // Quantize so the canvas only re-renders when the phase meaningfully
-  // changes (the Moon moves slowly through its cycle).
+  const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const phaseBucket = Math.round(phase * 200) / 200;
 
   useEffect(() => {
@@ -265,29 +270,52 @@ export function MoonVisual({
   const illum = Math.round(
     ((1 - Math.cos(2 * Math.PI * phase)) / 2) * 100,
   );
+  const emoji = getPhaseEmoji(phase);
+
+  const handleCopy = async () => {
+    if (!copyable) return;
+    try {
+      await navigator.clipboard.writeText(emoji);
+      setCopied(true);
+      toast({
+        title: "Moon emoji copied",
+        description: `${emoji}  ${emoji}  ${emoji}  paste it anywhere.`,
+      });
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      toast({
+        title: "Could not copy",
+        description: "Your browser blocked clipboard access.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <div
       className={className}
       style={{ position: "relative", width: size, height: size }}
     >
-      {/* Beautiful luminous corona behind the Moon. */}
+      {/* Double halo: dark indigo inner ring + warm amber outer glow. */}
       {glow && (
         <>
+          {/* Warm amber outer glow. */}
           <div aria-hidden style={{
-            position: "absolute", inset: "-35%", borderRadius: "9999px",
+            position: "absolute", inset: "-32%", borderRadius: "9999px",
             background:
-              "radial-gradient(circle, rgba(99,102,241,0.22) 0%, rgba(56,116,203,0.14) 38%, transparent 68%)",
-            filter: "blur(22px)", pointerEvents: "none",
+              "radial-gradient(circle, rgba(217,164,74,0.3) 0%, rgba(184,134,11,0.16) 40%, transparent 70%)",
+            filter: "blur(20px)", pointerEvents: "none",
           }} />
+          {/* Soft blue-violet mid corona. */}
           <div aria-hidden style={{
-            position: "absolute", inset: "-18%", borderRadius: "9999px",
+            position: "absolute", inset: "-16%", borderRadius: "9999px",
             background:
-              "radial-gradient(circle, rgba(199,210,254,0.45) 0%, rgba(165,180,252,0.22) 42%, transparent 70%)",
+              "radial-gradient(circle, rgba(129,140,248,0.28) 0%, rgba(99,102,241,0.14) 45%, transparent 72%)",
             filter: "blur(12px)", pointerEvents: "none",
           }} />
+          {/* Tight warm glow hugging the lit limb. */}
           <div aria-hidden style={{
-            position: "absolute", inset: "-6%", borderRadius: "9999px",
+            position: "absolute", inset: "-5%", borderRadius: "9999px",
             background:
               "radial-gradient(circle, rgba(255,238,200,0.4) 0%, rgba(255,248,225,0.16) 40%, transparent 66%)",
             filter: "blur(6px)", pointerEvents: "none",
@@ -295,36 +323,90 @@ export function MoonVisual({
         </>
       )}
 
-      {/* SVG fallback: visible until the canvas finishes rendering. */}
-      <div style={{ position: "absolute", inset: 0, transition: "opacity 0.5s ease" }}>
-        <MoonSvg phase={phase} size={size} />
-      </div>
-
-      {/* Accurate canvas Moon (fades in once rendered). */}
-      <canvas
-        ref={canvasRef}
-        width={TEX}
-        height={TEX}
-        role="img"
-        aria-label={`Realistic moon phase visualization showing ${illum} percent illumination`}
+      {/* The moon (clickable to copy the emoji). */}
+      <button
+        type="button"
+        onClick={handleCopy}
+        disabled={!copyable}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setHovered(true)}
+        onBlur={() => setHovered(false)}
+        aria-label={`Moon phase showing ${illum} percent illumination. Click to copy the ${emoji} emoji.`}
         style={{
-          position: "absolute",
-          inset: 0,
+          position: "relative",
           width: size,
           height: size,
-          opacity: 0,
-          transition: "opacity 0.6s ease",
+          padding: 0,
+          border: "none",
+          background: "transparent",
+          cursor: copyable ? "pointer" : "default",
           borderRadius: "50%",
         }}
-      />
+      >
+        {/* SVG fallback: visible until the canvas finishes rendering. */}
+        <div style={{ position: "absolute", inset: 0, transition: "opacity 0.5s ease" }}>
+          <MoonSvg phase={phase} size={size} />
+        </div>
 
-      {/* Warm luminous rim ring. */}
-      <div aria-hidden style={{
-        position: "absolute", inset: 0, borderRadius: "50%",
-        boxShadow:
-          "inset 0 0 0 1px rgba(255,240,210,0.18), 0 0 16px rgba(199,210,254,0.28)",
-        pointerEvents: "none",
-      }} />
+        {/* Accurate canvas Moon (fades in once rendered). */}
+        <canvas
+          ref={canvasRef}
+          width={TEX}
+          height={TEX}
+          role="img"
+          aria-label={`Realistic moon phase visualization showing ${illum} percent illumination`}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: size,
+            height: size,
+            opacity: 0,
+            transition: "opacity 0.6s ease",
+            borderRadius: "50%",
+          }}
+        />
+
+        {/* Warm luminous rim ring. */}
+        <div aria-hidden style={{
+          position: "absolute", inset: 0, borderRadius: "50%",
+          boxShadow:
+            "inset 0 0 0 1px rgba(255,240,210,0.2), 0 0 16px rgba(217,164,74,0.26)",
+          pointerEvents: "none",
+        }} />
+      </button>
+
+      {/* Click-to-copy hint badge (appears on hover/focus, only when copyable). */}
+      {copyable && (hovered || copied) && (
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            bottom: "2%",
+            right: "2%",
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+            padding: "4px 9px",
+            borderRadius: "9999px",
+            background: copied
+              ? "rgba(16,185,129,0.92)"
+              : "rgba(15,18,38,0.88)",
+            border: "1px solid rgba(255,255,255,0.16)",
+            color: "#fff",
+            fontSize: 11,
+            fontWeight: 500,
+            letterSpacing: "0.01em",
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
+            pointerEvents: "none",
+            zIndex: 5,
+          }}
+        >
+          {copied ? "Copied!" : `${emoji} Copy`}
+        </div>
+      )}
     </div>
   );
 }
