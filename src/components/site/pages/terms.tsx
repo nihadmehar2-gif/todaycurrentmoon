@@ -32,7 +32,7 @@ const SECTIONS = [
   },
   {
     h: "External links",
-    p: "We link to outside sources, like NASA and the US Navy, for reference. We do not control those sites and are not responsible for their content or rules.",
+    p: "This site does not link to outside websites. If we ever add one, that site's own rules will apply once you leave us.",
   },
   {
     h: "Your messages",

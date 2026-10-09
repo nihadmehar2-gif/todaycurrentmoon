@@ -221,7 +221,8 @@ function smoothstep(edge0: number, edge1: number, x: number): number {
 
 /**
  * Renders the lit Moon: Lambertian shading from the phase-derived Sun
- * direction, soft terminator, limb darkening, earthshine.
+ * direction, soft terminator, gentle limb darkening, earthshine, and a
+ * warm luminous color grade so the surface reads like beautiful moonlight.
  */
 function renderMoon(
   ctx: CanvasRenderingContext2D,
@@ -236,11 +237,16 @@ function renderMoon(
   const sy = 0;
   const sz = -Math.cos(theta);
   const data = imageData.data;
-  // Faint earthshine (blue-gray) on the night side. Visible but subtle,
-  // as in real crescent-moon photographs.
-  const eR = 0.055,
-    eG = 0.062,
-    eB = 0.085;
+  // Earthshine: a soft, slightly blue glow on the night side.
+  const eR = 0.058,
+    eG = 0.066,
+    eB = 0.092;
+  // Warm color grade (moonlight is gently warm). Applied to the lit side.
+  const warmR = 1.07,
+    warmG = 1.0,
+    warmB = 0.9;
+  // Gentle saturation/lift for a luminous, attractive look.
+  const litLift = 1.04;
 
   for (let i = 0; i < N * N; i++) {
     const p = i * 4;
@@ -256,13 +262,20 @@ function renderMoon(
     const ny = normals[ni + 1];
     const nz = normals[ni + 2];
     const lambert = nx * sx + ny * sy + nz * sz;
-    let intensity = smoothstep(-0.02, 0.13, lambert);
-    // Limb darkening (~35% darker at the limb vs center).
-    intensity *= 0.65 + 0.35 * nz;
+    let intensity = smoothstep(-0.02, 0.14, lambert);
+    // Gentle limb darkening (~28% darker at the limb vs center).
+    intensity *= 0.72 + 0.28 * nz;
+    // Soft lift on the lit side for a luminous feel.
+    intensity *= litLift;
+    if (intensity > 1) intensity = 1;
     const dark = 1 - intensity;
-    const r = albedo[ni] * intensity + eR * dark;
-    const g = albedo[ni + 1] * intensity + eG * dark;
-    const b = albedo[ni + 2] * intensity + eB * dark;
+    const baseR = albedo[ni] * intensity;
+    const baseG = albedo[ni + 1] * intensity;
+    const baseB = albedo[ni + 2] * intensity;
+    // Warm color grade on the lit side.
+    const r = baseR * warmR + eR * dark;
+    const g = baseG * warmG + eG * dark;
+    const b = baseB * warmB + eB * dark;
     data[p] = Math.min(255, r * 255);
     data[p + 1] = Math.min(255, g * 255);
     data[p + 2] = Math.min(255, b * 255);
@@ -388,27 +401,71 @@ export function MoonVisual({
       className={className}
       style={{ position: "relative", width: size, height: size }}
     >
-      {/* Soft atmospheric glow behind the Moon. */}
+      {/* Beautiful multi-layered atmospheric glow behind the Moon. */}
       {glow && (
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: "-18%",
-            borderRadius: "9999px",
-            background:
-              "radial-gradient(circle, rgba(165,180,252,0.35) 0%, rgba(56,116,203,0.15) 42%, transparent 70%)",
-            filter: "blur(10px)",
-            pointerEvents: "none",
-          }}
-        />
+        <>
+          {/* Broad outer halo (soft blue). */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: "-38%",
+              borderRadius: "9999px",
+              background:
+                "radial-gradient(circle, rgba(56,116,203,0.22) 0%, rgba(99,102,241,0.12) 40%, transparent 70%)",
+              filter: "blur(24px)",
+              pointerEvents: "none",
+              animation: "moon-halo-pulse 8s ease-in-out infinite alternate",
+            }}
+          />
+          {/* Mid violet corona. */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: "-22%",
+              borderRadius: "9999px",
+              background:
+                "radial-gradient(circle, rgba(165,180,252,0.42) 0%, rgba(129,140,248,0.2) 45%, transparent 72%)",
+              filter: "blur(14px)",
+              pointerEvents: "none",
+              animation: "moon-halo-pulse 7s ease-in-out infinite alternate-reverse",
+            }}
+          />
+          {/* Tight warm inner glow hugging the lit limb. */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: "-8%",
+              borderRadius: "9999px",
+              background:
+                "radial-gradient(circle, rgba(255,238,200,0.32) 0%, rgba(255,250,230,0.12) 38%, transparent 68%)",
+              filter: "blur(7px)",
+              pointerEvents: "none",
+            }}
+          />
+          {/* Delicate bright rim ring. */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "9999px",
+              boxShadow:
+                "inset 0 0 0 1px rgba(255,255,255,0.18), 0 0 28px rgba(199,210,254,0.28)",
+              pointerEvents: "none",
+            }}
+          />
+        </>
       )}
       {/* SVG fallback: always present underneath, covered by the canvas
           once the realistic Moon finishes rendering. */}
       <div style={{ position: "absolute", inset: 0 }}>
         <MoonSvg phase={phase} size={size} glow={false} />
       </div>
-      {/* Realistic canvas Moon (fades in once rendered). */}
+      {/* Realistic canvas Moon (fades in once rendered). A soft warm
+          drop-shadow gives a gentle bloom around the lit disk. */}
       <canvas
         ref={canvasRef}
         width={TEX}
@@ -423,8 +480,10 @@ export function MoonVisual({
           opacity: 0,
           transition: "opacity 0.6s ease",
           borderRadius: "50%",
+          filter: "drop-shadow(0 0 10px rgba(255,240,205,0.35))",
         }}
       />
+      <style>{`@keyframes moon-halo-pulse{0%{opacity:.7;transform:scale(.98)}100%{opacity:1;transform:scale(1.03)}}@media (prefers-reduced-motion: reduce){@keyframes moon-halo-pulse{0%{opacity:1}100%{opacity:1}}}`}</style>
     </div>
   );
 }

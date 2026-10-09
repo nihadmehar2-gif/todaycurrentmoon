@@ -1,5 +1,4 @@
 import type { PhaseKey } from "@/lib/moon";
-import { SCIENTIFIC_SOURCES } from "@/lib/site";
 
 export interface FaqItem {
   q: string;
@@ -98,10 +97,6 @@ export const EMOJI_MEANINGS: EmojiMeaning[] = [
       "Stands for rest and reset. A thin sliver before the dark means slow down and prepare for a new cycle.",
   },
 ];
-
-export type SourceLink = (typeof SCIENTIFIC_SOURCES)[number];
-
-export const SOURCES: SourceLink[] = [...SCIENTIFIC_SOURCES];
 
 export interface CalculatorTool {
   id: string;

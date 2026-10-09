@@ -8,7 +8,7 @@ import {
   useHashRoute,
 } from "@/components/site/use-route";
 import { useMounted } from "@/components/site/use-mounted";
-import { SCIENTIFIC_SOURCES, SITE_EMAIL } from "@/lib/site";
+import { SITE_EMAIL } from "@/lib/site";
 
 export function Footer() {
   const { navigate } = useHashRoute();
@@ -18,7 +18,7 @@ export function Footer() {
   return (
     <footer className="mt-auto border-t border-white/10 bg-[#04060f]/70 backdrop-blur-xl">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-12">
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-3">
@@ -55,25 +55,6 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-
-          {/* Sources */}
-          <div className="md:col-span-1">
-            <h2 className="eyebrow mb-3">Sources</h2>
-            <ul className="space-y-2">
-              {SCIENTIFIC_SOURCES.map((s) => (
-                <li key={s.href}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-slate-300/70 hover:text-white transition-colors"
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Contact */}
           <div className="md:col-span-1">

@@ -45,9 +45,6 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_AUTHOR }],
   creator: SITE_AUTHOR,
   applicationName: SITE_NAME,
-  alternates: {
-    canonical: "/",
-  },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/favicon.svg" }],
@@ -56,7 +53,6 @@ export const metadata: Metadata = {
     title: "Current Phase of the Moon Emoji | Moon Phase Today",
     description:
       "Live moon phase today with the exact emoji, illumination, lunar age, and cycle progress. A free moon calendar and moon calculators.",
-    url: SITE_URL,
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",

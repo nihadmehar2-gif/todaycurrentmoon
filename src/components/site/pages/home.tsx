@@ -1,14 +1,12 @@
 "use client";
 
 import {
-  Sparkles,
   Orbit,
   Eye,
   Sun,
   Globe2,
   HelpCircle,
   Quote,
-  ExternalLink,
   ArrowRight,
 } from "lucide-react";
 import {
@@ -31,7 +29,6 @@ import {
 import {
   EMOJI_MEANINGS,
   HOME_FAQS,
-  SOURCES,
 } from "@/lib/content";
 
 const WHY_PHASES = [
@@ -289,39 +286,6 @@ export function HomePage() {
         </Reveal>
       </Section>
 
-      {/* Sources */}
-      <Section id="sources" className="pt-0">
-        <SectionHeading
-          eyebrow="Sources"
-          title="Where our moon data comes from"
-          description="We check our lunar math against trusted astronomy sources so the phase and dates stay accurate."
-        />
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {SOURCES.map((s, i) => (
-            <Reveal key={s.href} delay={i * 0.06}>
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block h-full"
-              >
-                <Card className="glass h-full p-6 rounded-2xl border-white/10 hover:border-indigo-300/30 transition-colors group">
-                  <div className="flex items-center justify-between mb-3">
-                    <Sparkles className="w-5 h-5 text-indigo-300" />
-                    <ExternalLink className="w-4 h-4 text-indigo-200/50 group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="font-display text-base font-semibold text-white mb-2">
-                    {s.label}
-                  </h3>
-                  <p className="text-sm text-slate-300/80 leading-relaxed">
-                    {s.note}
-                  </p>
-                </Card>
-              </a>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
     </>
   );
 }

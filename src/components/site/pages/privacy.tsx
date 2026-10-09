@@ -28,7 +28,7 @@ const SECTIONS = [
   },
   {
     h: "External links",
-    p: "Some pages link to trusted astronomy sources, such as NASA and the US Navy. Those sites have their own privacy rules. Once you leave this site, their policies apply, not ours.",
+    p: "This site does not link to outside websites. If we ever add a link, we will note it here and the other site's rules will apply once you leave us.",
   },
   {
     h: "Your choices",
