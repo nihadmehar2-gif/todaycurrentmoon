@@ -1,0 +1,317 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+  Moon Phase Emoji - deep space theme.
+  The site is a permanent dark, celestial experience, so the root palette
+  is the space palette (no light mode toggle needed for this design).
+*/
+:root {
+  --radius: 0.875rem;
+
+  /* Deep space background. */
+  --background: oklch(0.13 0.028 275);
+  --foreground: oklch(0.96 0.012 280);
+
+  /* Glass cards sit on top of the nebula. */
+  --card: oklch(0.18 0.03 278 / 0.55);
+  --card-foreground: oklch(0.96 0.012 280);
+
+  --popover: oklch(0.16 0.03 278 / 0.92);
+  --popover-foreground: oklch(0.96 0.012 280);
+
+  /* Primary is a luminous violet. */
+  --primary: oklch(0.72 0.16 295);
+  --primary-foreground: oklch(0.14 0.03 280);
+
+  --secondary: oklch(0.28 0.04 270 / 0.5);
+  --secondary-foreground: oklch(0.96 0.012 280);
+
+  --muted: oklch(0.26 0.03 275 / 0.5);
+  --muted-foreground: oklch(0.78 0.02 280);
+
+  --accent: oklch(0.7 0.14 235);
+  --accent-foreground: oklch(0.97 0.01 250);
+
+  --destructive: oklch(0.68 0.2 20);
+
+  --border: oklch(1 0 0 / 0.1);
+  --input: oklch(1 0 0 / 0.12);
+  --ring: oklch(0.72 0.16 295 / 0.6);
+
+  --chart-1: oklch(0.72 0.16 295);
+  --chart-2: oklch(0.7 0.14 235);
+  --chart-3: oklch(0.78 0.13 200);
+  --chart-4: oklch(0.74 0.15 320);
+  --chart-5: oklch(0.72 0.13 255);
+
+  --sidebar: oklch(0.16 0.03 278 / 0.9);
+  --sidebar-foreground: oklch(0.96 0.012 280);
+  --sidebar-primary: oklch(0.72 0.16 295);
+  --sidebar-primary-foreground: oklch(0.14 0.03 280);
+  --sidebar-accent: oklch(0.28 0.04 270 / 0.5);
+  --sidebar-accent-foreground: oklch(0.96 0.012 280);
+  --sidebar-border: oklch(1 0 0 / 0.1);
+  --sidebar-ring: oklch(0.72 0.16 295 / 0.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-color: #06040f;
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* ---------- Celestial background layers ---------- */
+
+/* The fixed nebula + starfield container sits behind all content. */
+.cosmic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 800px at 78% -10%, rgba(124, 58, 237, 0.28), transparent 60%),
+    radial-gradient(1000px 700px at 10% 8%, rgba(56, 97, 251, 0.24), transparent 60%),
+    radial-gradient(900px 900px at 50% 120%, rgba(109, 70, 205, 0.22), transparent 60%),
+    linear-gradient(180deg, #06040f 0%, #080718 45%, #050410 100%);
+}
+
+/* Subtle layered nebula clouds for depth. */
+.nebula {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px 400px at 20% 30%, rgba(139, 92, 246, 0.16), transparent 70%),
+    radial-gradient(700px 500px at 80% 60%, rgba(59, 130, 246, 0.14), transparent 70%),
+    radial-gradient(500px 500px at 60% 20%, rgba(236, 72, 153, 0.08), transparent 70%);
+  filter: blur(8px);
+  animation: nebula-drift 40s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(2%, -1.5%, 0) scale(1.06);
+    opacity: 1;
+  }
+}
+
+/* Twinkling stars rendered with box-shadow points. */
+.stars {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  animation: twinkle 6s ease-in-out infinite alternate;
+}
+.stars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, #cbd5ff, transparent),
+    radial-gradient(1px 1px at 200px 160px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 320px 60px, #e0e7ff, transparent),
+    radial-gradient(1px 1px at 420px 200px, #fff, transparent);
+  background-size: 500px 320px;
+  opacity: 0.7;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ---------- Glass surfaces ---------- */
+.glass {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 10px 40px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 24px 60px -16px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Glowing ring used around the hero moon. */
+.moon-glow {
+  position: relative;
+}
+.moon-glow::before {
+  content: "";
+  position: absolute;
+  inset: -22%;
+  z-index: -1;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.45) 0%,
+    rgba(59, 130, 246, 0.22) 40%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  animation: pulse-glow 7s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+/* Slow float used on hero elements. */
+.float-slow {
+  animation: float-slow 9s ease-in-out infinite;
+}
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Gradient text helper for elegant headings. */
+.text-gradient {
+  background: linear-gradient(110deg, #fef9ff 0%, #c4b5fd 45%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Section reveal on scroll (used via Framer Motion, kept as fallback). */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Custom scrollbar for the deep space theme. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(167, 139, 250, 0.4) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(167, 139, 250, 0.5),
+    rgba(59, 130, 246, 0.5)
+  );
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Focus ring tuned for the dark theme. */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid rgba(167, 139, 250, 0.8);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Reduce motion respect. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
