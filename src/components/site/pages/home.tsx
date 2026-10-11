@@ -22,6 +22,7 @@ import { LunarCycle } from "@/components/site/lunar-cycle";
 import { MoonCalendar } from "@/components/site/moon-calendar";
 import { Section, SectionHeading } from "@/components/site/section";
 import { Reveal } from "@/components/site/reveal";
+import { AdSlot } from "@/components/site/ad-slot";
 import Link from "next/link";
 import {
   EMOJI_MEANINGS,
@@ -90,6 +91,17 @@ export function HomePage() {
               </Card>
             </Reveal>
           ))}
+        </div>
+      </Section>
+
+      {/* Content banner (300x250) — after the main moon phase info. */}
+      <Section id="content-ad" className="pt-0 pb-0">
+        <div className="flex justify-center">
+          <AdSlot
+            adKey="61a2997f0e80ea6abd89185fcc0077b7"
+            width={300}
+            height={250}
+          />
         </div>
       </Section>
 
