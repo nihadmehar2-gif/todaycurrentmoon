@@ -12,11 +12,13 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ROUTES } from "@/lib/routes";
+import { useMounted } from "@/components/site/use-mounted";
 import { cn } from "@/lib/utils";
 
 /** Sticky top navigation with a glass surface and a mobile sheet menu. */
 export function Navbar() {
   const pathname = usePathname();
+  const mounted = useMounted();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -84,58 +86,74 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Mobile menu trigger */}
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="lg:hidden text-indigo-100 hover:text-white hover:bg-white/10"
-                aria-label="Open menu"
-              >
-                <Menu className="w-5 h-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-[300px] sm:w-[340px] bg-[#070b1d]/95 border-white/10 p-0"
-            >
-              <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-                <SheetTitle className="font-display text-lg text-gradient">
-                  Moon Phase Emoji
-                </SheetTitle>
-              </div>
-              <nav className="flex flex-col p-3">
-                {ROUTES.map((r) => (
-                  <Link
-                    key={r.path}
-                    href={r.path}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "flex items-center justify-between rounded-xl px-4 py-3 text-left text-sm transition-colors",
-                      isActive(r.path)
-                        ? "bg-white/10 text-white"
-                        : "text-slate-300/80 hover:bg-white/5 hover:text-white",
-                    )}
-                  >
-                    {r.label}
-                    {isActive(r.path) && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-300" />
-                    )}
-                  </Link>
-                ))}
-              </nav>
-              <div className="px-5 py-4 mt-auto border-t border-white/10">
-                <Link
-                  href="/contact"
-                  onClick={() => setOpen(false)}
-                  className="block text-xs text-indigo-200/60"
+          {/* Mobile menu trigger.
+              The Radix Sheet/Dialog trigger generates an aria-controls ID
+              that can mismatch between server and client in React 19 +
+              Turbopack. Render a plain button placeholder during SSR and
+              only mount the Sheet after hydration. */}
+          {mounted ? (
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="lg:hidden text-indigo-100 hover:text-white hover:bg-white/10"
+                  aria-label="Open menu"
                 >
-                  Questions? Reach out anytime.
-                </Link>
-              </div>
-            </SheetContent>
-          </Sheet>
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                className="w-[300px] sm:w-[340px] bg-[#070b1d]/95 border-white/10 p-0"
+              >
+                <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+                  <SheetTitle className="font-display text-lg text-gradient">
+                    Moon Phase Emoji
+                  </SheetTitle>
+                </div>
+                <nav className="flex flex-col p-3">
+                  {ROUTES.map((r) => (
+                    <Link
+                      key={r.path}
+                      href={r.path}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between rounded-xl px-4 py-3 text-left text-sm transition-colors",
+                        isActive(r.path)
+                          ? "bg-white/10 text-white"
+                          : "text-slate-300/80 hover:bg-white/5 hover:text-white",
+                      )}
+                    >
+                      {r.label}
+                      {isActive(r.path) && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-300" />
+                      )}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="px-5 py-4 mt-auto border-t border-white/10">
+                  <Link
+                    href="/contact"
+                    onClick={() => setOpen(false)}
+                    className="block text-xs text-indigo-200/60"
+                  >
+                    Questions? Reach out anytime.
+                  </Link>
+                </div>
+              </SheetContent>
+            </Sheet>
+          ) : (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden text-indigo-100 hover:text-white hover:bg-white/10"
+              aria-label="Open menu"
+              disabled
+            >
+              <Menu className="w-5 h-5" />
+            </Button>
+          )}
         </div>
       </div>
     </header>

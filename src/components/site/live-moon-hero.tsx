@@ -330,25 +330,30 @@ export function LiveMoonHero() {
                       </Button>
                       <div className="flex items-center gap-2 flex-1 min-w-0">
                         <RefreshCw className="w-3.5 h-3.5 text-indigo-200/60 shrink-0" />
-                        <Select value={tz} onValueChange={setTz}>
-                          <SelectTrigger className="w-full bg-white/5 border-white/10 text-white">
-                            <SelectValue placeholder="Select time zone" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-[#0a0e22] border-white/10 max-h-72">
-                            {(mounted
-                              ? Array.from(new Set([systemTz, ...COMMON_TIMEZONES]))
-                              : COMMON_TIMEZONES
-                            ).map((z) => (
-                              <SelectItem
-                                key={z}
-                                value={z}
-                                className="text-indigo-50 focus:bg-white/10"
-                              >
-                                {z}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        {mounted ? (
+                          <Select value={tz} onValueChange={setTz}>
+                            <SelectTrigger className="w-full bg-white/5 border-white/10 text-white">
+                              <SelectValue placeholder="Select time zone" />
+                            </SelectTrigger>
+                            <SelectContent className="bg-[#0a0e22] border-white/10 max-h-72">
+                              {Array.from(
+                                new Set([systemTz, ...COMMON_TIMEZONES]),
+                              ).map((z) => (
+                                <SelectItem
+                                  key={z}
+                                  value={z}
+                                  className="text-indigo-50 focus:bg-white/10"
+                                >
+                                  {z}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        ) : (
+                          <div className="w-full h-9 rounded-md bg-white/5 border border-white/10 px-3 flex items-center text-sm text-slate-300">
+                            Select time zone
+                          </div>
+                        )}
                       </div>
                     </div>
                     {geo.status === "denied" && (

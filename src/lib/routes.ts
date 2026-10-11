@@ -60,7 +60,7 @@ export const ROUTES: RouteDef[] = [
       "Send a message or email us at nihadmehar2@gmail.com. We read every note and reply to every reader.",
   },
   {
-    path: "/privacy-policy",
+    path: "/privacy",
     label: "Privacy Policy",
     title: "Privacy Policy | Today Current Moon",
     description:

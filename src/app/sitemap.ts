@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/moon-calculator": 0.8,
     "/about": 0.5,
     "/contact": 0.5,
-    "/privacy-policy": 0.3,
+    "/privacy": 0.3,
     "/terms": 0.3,
   };
   const frequencies: Record<string, "daily" | "weekly" | "monthly" | "yearly"> =
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/moon-calculator": "weekly",
       "/about": "monthly",
       "/contact": "monthly",
-      "/privacy-policy": "yearly",
+      "/privacy": "yearly",
       "/terms": "yearly",
     };
 

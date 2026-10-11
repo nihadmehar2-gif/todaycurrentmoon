@@ -69,7 +69,7 @@ export function Footer() {
           </p>
           <p className="flex items-center gap-3">
             <Link
-              href="/privacy-policy"
+              href="/privacy"
               className="hover:text-white transition-colors"
             >
               Privacy
