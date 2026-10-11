@@ -52,3 +52,16 @@ prompt
 server.log
 # Skills directory
 /skills/
+# sandbox artifacts
+/.zscripts/
+/download/
+/mini-services/
+/db/
+/upload/
+/tool-results/
+dev.log
+server.log
+*.png.bak
+
+# root-level debug screenshots (keep public/*.png)
+/*.png

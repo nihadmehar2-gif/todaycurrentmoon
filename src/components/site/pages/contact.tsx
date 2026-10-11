@@ -95,6 +95,7 @@ export function ContactPage() {
     <PageShell
       title="Contact Us"
       breadcrumb="Contact Us"
+      path="/contact"
       description="Have a question, a correction, or an idea? We would love to hear from you. Send a note below or email us directly."
       jsonLd={jsonLd}
     >

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://moonphaseemoji.com/sitemap.xml
+Sitemap: https://todaycurrentmoon.vercel.app/sitemap.xml

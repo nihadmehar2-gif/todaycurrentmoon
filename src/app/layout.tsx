@@ -73,6 +73,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "ZD9SdIXWF3yJhDc3HSp5Ti6QufX1rrttnUxM6AFeVSY",
+  },
   category: "science",
 };
 

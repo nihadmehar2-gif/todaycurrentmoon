@@ -78,6 +78,7 @@ export function MoonPhasesPage() {
     <PageShell
       title="Moon Phases: All Eight, Explained Simply"
       breadcrumb="Moon Phases"
+      path="/moon-phases"
       description={`The Moon moves through eight phases in a cycle that lasts about ${SYNODIC_MONTH.toFixed(
         2,
       )} days. Here is each phase, what it looks like, and what it means.`}

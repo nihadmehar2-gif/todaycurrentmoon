@@ -1,19 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { Mail, MoonStar } from "lucide-react";
-import {
-  type RouteKey,
-  ROUTES,
-  routeHref,
-  useHashRoute,
-} from "@/components/site/use-route";
+import { ROUTES } from "@/lib/routes";
 import { useMounted } from "@/components/site/use-mounted";
 import { SITE_EMAIL } from "@/lib/site";
 
 export function Footer() {
-  const { navigate } = useHashRoute();
   const mounted = useMounted();
-  const go = (key: RouteKey) => navigate(key);
 
   return (
     <footer className="mt-auto border-t border-white/10 bg-[#04060f]/70 backdrop-blur-xl">
@@ -40,17 +34,13 @@ export function Footer() {
             <h2 className="eyebrow mb-3">Explore</h2>
             <ul className="space-y-2">
               {ROUTES.map((r) => (
-                <li key={r.key}>
-                  <a
-                    href={routeHref(r.key)}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      go(r.key);
-                    }}
+                <li key={r.path}>
+                  <Link
+                    href={r.path}
                     className="text-sm text-slate-300/70 hover:text-white transition-colors"
                   >
                     {r.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -74,33 +64,25 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400/70">
           <p>
-            &copy; {mounted ? new Date().getFullYear() : ""} Moon Phase Emoji.
-            Built by Adam Jonah.
+            &copy; {mounted ? new Date().getFullYear() : ""} Today Current Moon.
+            Built by Nihad Mehar.
           </p>
           <p className="flex items-center gap-3">
-            <a
-              href={routeHref("privacy")}
-              onClick={(e) => {
-                e.preventDefault();
-                go("privacy");
-              }}
+            <Link
+              href="/privacy-policy"
               className="hover:text-white transition-colors"
             >
               Privacy
-            </a>
+            </Link>
             <span aria-hidden className="opacity-40">
               &middot;
             </span>
-            <a
-              href={routeHref("terms")}
-              onClick={(e) => {
-                e.preventDefault();
-                go("terms");
-              }}
+            <Link
+              href="/terms"
               className="hover:text-white transition-colors"
             >
               Terms
-            </a>
+            </Link>
           </p>
         </div>
       </div>

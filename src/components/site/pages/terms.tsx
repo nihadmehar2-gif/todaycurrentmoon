@@ -62,6 +62,7 @@ export function TermsPage() {
     <PageShell
       title="Terms of Use"
       breadcrumb="Terms of Use"
+      path="/terms"
       description="Clear, fair rules for using this site and its moon tools. Please read them before you use the tools."
       jsonLd={jsonLd}
     >

@@ -22,10 +22,7 @@ import { LunarCycle } from "@/components/site/lunar-cycle";
 import { MoonCalendar } from "@/components/site/moon-calendar";
 import { Section, SectionHeading } from "@/components/site/section";
 import { Reveal } from "@/components/site/reveal";
-import {
-  type RouteKey,
-  useHashRoute,
-} from "@/components/site/use-route";
+import Link from "next/link";
 import {
   EMOJI_MEANINGS,
   HOME_FAQS,
@@ -55,8 +52,6 @@ const WHY_PHASES = [
 ];
 
 export function HomePage() {
-  const { navigate } = useHashRoute();
-  const go = (k: RouteKey) => navigate(k);
 
   return (
     <>
@@ -109,13 +104,13 @@ export function HomePage() {
           <PhaseGrid />
         </div>
         <Reveal className="mt-8 text-center">
-          <button
-            onClick={() => go("moon-phases")}
+          <Link
+            href="/moon-phases"
             className="inline-flex items-center gap-2 text-sm text-indigo-200 hover:text-white transition-colors"
           >
             Explore the full moon phases guide
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </Reveal>
       </Section>
 
@@ -142,13 +137,13 @@ export function HomePage() {
           <MoonCalendar />
         </div>
         <Reveal className="mt-8 text-center">
-          <button
-            onClick={() => go("moon-calendar")}
+          <Link
+            href="/moon-calendar"
             className="inline-flex items-center gap-2 text-sm text-indigo-200 hover:text-white transition-colors"
           >
             Open the full moon calendar
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </Reveal>
       </Section>
 
@@ -243,7 +238,7 @@ export function HomePage() {
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <div className="shrink-0">
                 <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500/30 to-sky-500/30 ring-1 ring-white/15 text-2xl font-display font-semibold text-white">
-                  AJ
+                  NM
                 </div>
               </div>
               <div className="min-w-0">
@@ -254,14 +249,14 @@ export function HomePage() {
                   </span>
                 </div>
                 <h3 className="font-display text-xl font-semibold text-white">
-                  Adam Jonah
+                  Nihad Mehar
                 </h3>
                 <p className="text-sm text-indigo-200/70 mb-3">
                   Website Developer
                 </p>
                 <div className="text-sm text-slate-200/85 leading-relaxed space-y-3">
                   <p>
-                    Hi, I am Adam. I built this site because I want the current
+                    Hi, I am Nihad. I built this site because I want the current
                     phase of the moon to be easy to find, read, and trust. My
                     focus is on clear content, simple tools, and useful
                     explanations that help you in real life.

@@ -33,7 +33,7 @@ import {
   getNextNewMoon,
   type PhaseInfo,
 } from "@/lib/moon";
-import { type RouteKey, useHashRoute } from "@/components/site/use-route";
+import Link from "next/link";
 
 const COMMON_TIMEZONES = [
   "UTC",
@@ -70,7 +70,6 @@ function tzCity(tz: string): string {
 
 /** Hero: large luminous moon centerpiece, headline, live date/day, phase, illumination, calendar button. */
 export function LiveMoonHero() {
-  const { navigate } = useHashRoute();
   const mounted = useMounted();
   const systemTz = useMemo(
     () =>
@@ -191,21 +190,23 @@ export function LiveMoonHero() {
 
               <RevealFade delay={0.24}>
                 <div className="mt-7 flex flex-wrap gap-3 justify-center lg:justify-start">
-                  <Button
-                    onClick={() => navigate("moon-calendar" as RouteKey)}
-                    className="bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400 text-white border-0 shadow-lg shadow-indigo-500/20"
-                  >
-                    <CalendarDays className="w-4 h-4" />
-                    Open Moon Calendar
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    onClick={() => navigate("moon-phases" as RouteKey)}
-                    className="bg-white/10 text-white hover:bg-white/15 border border-white/10"
-                  >
-                    See All 8 Phases
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
+                  <Link href="/moon-calendar">
+                    <Button
+                      className="bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400 text-white border-0 shadow-lg shadow-indigo-500/20"
+                    >
+                      <CalendarDays className="w-4 h-4" />
+                      Open Moon Calendar
+                    </Button>
+                  </Link>
+                  <Link href="/moon-phases">
+                    <Button
+                      variant="secondary"
+                      className="bg-white/10 text-white hover:bg-white/15 border border-white/10"
+                    >
+                      See All 8 Phases
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
               </RevealFade>
             </div>

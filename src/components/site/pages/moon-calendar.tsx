@@ -44,6 +44,7 @@ export function MoonCalendarPage() {
     <PageShell
       title="Moon Calendar: Every Phase, Every Day"
       breadcrumb="Moon Calendar"
+      path="/moon-calendar"
       description="Browse any month and see the moon phase for each day. Use the arrows to move between months, or jump back to today with one tap."
       jsonLd={jsonLd}
     >

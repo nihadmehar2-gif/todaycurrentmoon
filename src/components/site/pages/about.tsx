@@ -38,13 +38,14 @@ export function AboutPage() {
     "@type": "AboutPage",
     name: "About Moon Phase Emoji",
     description:
-      "Learn about Moon Phase Emoji and the content specialist behind it, Adam Jonah.",
+      "Learn about Moon Phase Emoji and the content specialist behind it, Nihad Mehar.",
   };
 
   return (
     <PageShell
       title="About Moon Phase Emoji"
       breadcrumb="About Us"
+      path="/about"
       description="A small project with one goal: make the current phase of the moon easy to find, read, and trust."
       jsonLd={jsonLd}
     >
@@ -53,7 +54,7 @@ export function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-6 items-start">
             <div className="shrink-0">
               <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500/30 to-sky-500/30 ring-1 ring-white/15 text-2xl font-display font-semibold text-white">
-                AJ
+                NM
               </div>
             </div>
             <div className="min-w-0">
@@ -64,12 +65,12 @@ export function AboutPage() {
                 </span>
               </div>
               <h2 className="font-display text-xl font-semibold text-white">
-                Adam Jonah
+                Nihad Mehar
               </h2>
               <p className="text-sm text-indigo-200/70 mb-3">Website Developer</p>
               <div className="text-sm text-slate-200/85 leading-relaxed space-y-3">
                 <p>
-                  Hi, I am Adam. I built Moon Phase Emoji because the moon
+                  Hi, I am Nihad. I built Moon Phase Emoji because the moon
                   should be simple to check. My work focuses on clear content,
                   lunar research, and useful explanations that fit real life.
                 </p>

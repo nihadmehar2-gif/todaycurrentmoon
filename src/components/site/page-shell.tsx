@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Link from "next/link";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,13 +11,15 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Reveal } from "@/components/site/reveal";
-import { type RouteKey, routeHref, useHashRoute } from "@/components/site/use-route";
 import { SITE_URL } from "@/lib/site";
 
 interface PageShellProps {
   title: string;
   description?: ReactNode;
+  /** Breadcrumb label for the current page. */
   breadcrumb: string;
+  /** Canonical path of the current page, e.g. "/moon-phases". */
+  path: string;
   children: ReactNode;
   /** JSON-LD structured data object, rendered as a script tag. */
   jsonLd?: object;
@@ -27,12 +30,10 @@ export function PageShell({
   title,
   description,
   breadcrumb,
+  path,
   children,
   jsonLd,
 }: PageShellProps) {
-  const { route, navigate } = useHashRoute();
-  const go = (k: RouteKey) => navigate(k);
-
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -47,7 +48,7 @@ export function PageShell({
         "@type": "ListItem",
         position: 2,
         name: breadcrumb,
-        item: `${SITE_URL}/#${route}`,
+        item: `${SITE_URL}${path}`,
       },
     ],
   };
@@ -63,15 +64,7 @@ export function PageShell({
                   asChild
                   className="text-indigo-200/70 hover:text-white"
                 >
-                  <a
-                    href={routeHref("home")}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      go("home");
-                    }}
-                  >
-                    Home
-                  </a>
+                  <Link href="/">Home</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="text-indigo-200/40" />
@@ -102,20 +95,12 @@ export function PageShell({
         <div className="mt-10 space-y-12">{children}</div>
       </div>
 
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd ?? breadcrumbLd),
-          }}
-        />
-      )}
-      {!jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd ?? breadcrumbLd),
+        }}
+      />
     </article>
   );
 }

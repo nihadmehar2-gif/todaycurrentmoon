@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, MoonStar, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, MoonStar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -9,17 +11,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  type RouteKey,
-  ROUTES,
-  routeHref,
-  useHashRoute,
-} from "@/components/site/use-route";
+import { ROUTES } from "@/lib/routes";
 import { cn } from "@/lib/utils";
 
 /** Sticky top navigation with a glass surface and a mobile sheet menu. */
 export function Navbar() {
-  const { route, navigate } = useHashRoute();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -30,10 +27,8 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const go = (key: RouteKey) => {
-    navigate(key);
-    setOpen(false);
-  };
+  const isActive = (path: string) =>
+    path === "/" ? pathname === "/" : pathname.startsWith(path);
 
   return (
     <header
@@ -49,10 +44,10 @@ export function Navbar() {
             scrolled ? "glass-strong" : "glass",
           )}
         >
-          <button
-            onClick={() => go("home")}
+          <Link
+            href="/"
             className="group flex items-center gap-2.5"
-            aria-label="Moon Phase Emoji home"
+            aria-label="Today Current Moon home"
           >
             <span className="relative grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500/30 to-sky-500/30 ring-1 ring-white/15">
               <MoonStar className="w-5 h-5 text-indigo-100" />
@@ -66,26 +61,26 @@ export function Navbar() {
                 Tonight&apos;s Moon
               </span>
             </span>
-          </button>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-0.5">
             {ROUTES.map((r) => (
-              <button
-                key={r.key}
-                onClick={() => go(r.key)}
+              <Link
+                key={r.path}
+                href={r.path}
                 className={cn(
                   "relative px-3 py-2 text-sm rounded-lg transition-colors",
-                  route === r.key
+                  isActive(r.path)
                     ? "text-white"
                     : "text-slate-300/80 hover:text-white",
                 )}
               >
                 {r.label}
-                {route === r.key && (
+                {isActive(r.path) && (
                   <span className="absolute inset-x-2 -bottom-0.5 h-px bg-gradient-to-r from-transparent via-indigo-300 to-transparent" />
                 )}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -112,34 +107,32 @@ export function Navbar() {
               </div>
               <nav className="flex flex-col p-3">
                 {ROUTES.map((r) => (
-                  <button
-                    key={r.key}
-                    onClick={() => go(r.key)}
+                  <Link
+                    key={r.path}
+                    href={r.path}
+                    onClick={() => setOpen(false)}
                     className={cn(
                       "flex items-center justify-between rounded-xl px-4 py-3 text-left text-sm transition-colors",
-                      route === r.key
+                      isActive(r.path)
                         ? "bg-white/10 text-white"
                         : "text-slate-300/80 hover:bg-white/5 hover:text-white",
                     )}
                   >
                     {r.label}
-                    {route === r.key && (
+                    {isActive(r.path) && (
                       <span className="w-1.5 h-1.5 rounded-full bg-indigo-300" />
                     )}
-                  </button>
+                  </Link>
                 ))}
               </nav>
               <div className="px-5 py-4 mt-auto border-t border-white/10">
-                <a
-                  href={routeHref("contact")}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    go("contact");
-                  }}
+                <Link
+                  href="/contact"
+                  onClick={() => setOpen(false)}
                   className="block text-xs text-indigo-200/60"
                 >
                   Questions? Reach out anytime.
-                </a>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>

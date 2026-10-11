@@ -27,10 +27,7 @@ import {
   formatFullDate,
 } from "@/lib/moon";
 import { CALCULATOR_TOOLS } from "@/lib/content";
-import {
-  type RouteKey,
-  useHashRoute,
-} from "@/components/site/use-route";
+import Link from "next/link";
 
 function todayInputValue(): string {
   const d = new Date();
@@ -175,9 +172,6 @@ const TOOL_META: Record<
 };
 
 export function MoonCalculatorsPage() {
-  const { navigate } = useHashRoute();
-  const go = (k: RouteKey) => navigate(k);
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -193,7 +187,8 @@ export function MoonCalculatorsPage() {
   return (
     <PageShell
       title="Moon Calculators: Free Tools for Every Lunar Question"
-      breadcrumb="Moon Calculators"
+      breadcrumb="Moon Calculator"
+      path="/moon-calculator"
       description="A polished set of free moon tools. Find the phase for any date, check the next full moon, or see the Moon on your birthday."
       jsonLd={jsonLd}
     >
@@ -248,14 +243,14 @@ export function MoonCalculatorsPage() {
                   </ul>
                   <div className="pt-3 border-t border-white/10">
                     {isCalendar ? (
-                      <button
-                        onClick={() => go("moon-calendar")}
+                      <Link
+                        href="/moon-calendar"
                         className="inline-flex items-center gap-1.5 text-xs text-indigo-200 hover:text-white transition-colors"
                       >
                         <Icon className="w-3.5 h-3.5" />
                         {meta?.note}
                         <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                      </Link>
                     ) : (
                       <span className="inline-flex items-center gap-1.5 text-xs text-indigo-200/70">
                         <Icon className="w-3.5 h-3.5" />

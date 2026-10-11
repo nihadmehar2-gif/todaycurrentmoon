@@ -62,6 +62,7 @@ export function PrivacyPage() {
     <PageShell
       title="Privacy Policy"
       breadcrumb="Privacy Policy"
+      path="/privacy-policy"
       description="We respect your privacy. This page explains, in plain words, what we do and do not collect."
       jsonLd={jsonLd}
     >

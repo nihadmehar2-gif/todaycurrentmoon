@@ -17,36 +17,45 @@ interface MoonCalendarProps {
 /**
  * Interactive month calendar. Each day cell shows the moon phase emoji
  * computed from the real lunar algorithm, plus the illumination percent.
+ *
+ * To avoid hydration mismatches, the calendar renders a stable skeleton
+ * (weekday headers + empty grid) during SSR and the first client render.
+ * The full calendar with phase data is only rendered after mount, using
+ * UTC dates so the phase calculation is deterministic regardless of the
+ * server or client timezone.
  */
 export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
   const mounted = useMounted();
   const [offset, setOffset] = useState(0);
 
-  const today = useMemo(() => (mounted ? new Date() : null), [mounted]);
-
-  const cursor = useMemo(() => {
-    if (initial) return new Date(initial.getFullYear(), initial.getMonth(), 1);
-    if (today) return new Date(today.getFullYear(), today.getMonth() + offset, 1);
-    return new Date(2000, 0, 1);
-  }, [initial, today, offset]);
+  // Anchor date: the user's current month (client-only) or a stable
+  // placeholder during SSR. Using UTC so the phase calc is deterministic.
+  const anchor = useMemo(() => {
+    if (initial) return new Date(Date.UTC(initial.getFullYear(), initial.getMonth(), 1));
+    if (!mounted) return new Date(Date.UTC(2000, 0, 1));
+    const now = new Date();
+    return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + offset, 1));
+  }, [initial, mounted, offset]);
 
   const { year, month, days, leading } = useMemo(() => {
-    const year = cursor.getFullYear();
-    const month = cursor.getMonth();
-    const first = new Date(year, month, 1);
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const leading = first.getDay();
+    const year = anchor.getUTCFullYear();
+    const month = anchor.getUTCMonth();
+    const first = new Date(Date.UTC(year, month, 1));
+    const daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+    const leading = first.getUTCDay();
     const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
     return { year, month, days, leading };
-  }, [cursor]);
+  }, [anchor]);
 
   const monthLabel = new Intl.DateTimeFormat("en-US", {
     month: "long",
     year: "numeric",
-  }).format(new Date(year, month, 1));
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month, 1)));
 
   const isToday = (day: number) => {
-    if (!today) return false;
+    if (!mounted) return false;
+    const today = new Date();
     return (
       today.getFullYear() === year &&
       today.getMonth() === month &&
@@ -58,9 +67,13 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
   const nextMonth = () => setOffset((o) => o + 1);
   const goToday = () => setOffset(0);
 
+  // Build day cells with UTC dates for deterministic phase calculation.
   const cells: Array<{ day: number | null; date?: Date }> = [
     ...Array.from({ length: leading }, () => ({ day: null })),
-    ...days.map((day) => ({ day, date: new Date(year, month, day) })),
+    ...days.map((day) => ({
+      day,
+      date: new Date(Date.UTC(year, month, day, 12)),
+    })),
   ];
 
   return (
@@ -68,7 +81,7 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h3 className="font-display text-xl sm:text-2xl text-gradient">
-            {monthLabel}
+            {mounted ? monthLabel : "\u2014"}
           </h3>
           {!compact && (
             <p className="text-xs text-slate-300/60 mt-0.5">
@@ -118,38 +131,46 @@ export function MoonCalendar({ initial, compact = false }: MoonCalendarProps) {
       </div>
 
       <div className="grid grid-cols-7 gap-1 sm:gap-2">
-        {cells.map((cell, i) => {
-          if (cell.day === null || !cell.date) {
-            return <div key={`empty-${i}`} className="aspect-square" />;
-          }
-          const phase = getMoonPhase(cell.date);
-          return (
-            <div
-              key={cell.day}
-              className={cn(
-                "aspect-square rounded-xl flex flex-col items-center justify-center gap-0.5 transition-colors",
-                "bg-white/[0.03] hover:bg-white/[0.08] border border-white/5",
-                isToday(cell.day) &&
-                  "ring-1 ring-indigo-300/60 bg-indigo-400/10",
-              )}
-              title={`${cell.date.toDateString()} - ${phase.name} (${Math.round(
-                phase.illumination * 100,
-              )}% lit)`}
-            >
-              <span className="text-base sm:text-xl leading-none">
-                {phase.emoji}
-              </span>
-              <span className="text-[9px] sm:text-[11px] text-slate-300/70 tabular-nums">
-                {cell.day}
-              </span>
-              {!compact && (
-                <span className="hidden sm:block text-[8px] text-slate-400/50 tabular-nums">
-                  {Math.round(phase.illumination * 100)}%
-                </span>
-              )}
-            </div>
-          );
-        })}
+        {mounted
+          ? cells.map((cell, i) => {
+              if (cell.day === null || !cell.date) {
+                return <div key={`empty-${i}`} className="aspect-square" />;
+              }
+              const phase = getMoonPhase(cell.date);
+              return (
+                <div
+                  key={cell.day}
+                  className={cn(
+                    "aspect-square rounded-xl flex flex-col items-center justify-center gap-0.5 transition-colors",
+                    "bg-white/[0.03] hover:bg-white/[0.08] border border-white/5",
+                    isToday(cell.day) &&
+                      "ring-1 ring-indigo-300/60 bg-indigo-400/10",
+                  )}
+                  title={`${cell.date.toDateString()} - ${phase.name} (${Math.round(
+                    phase.illumination * 100,
+                  )}% lit)`}
+                >
+                  <span className="text-base sm:text-xl leading-none">
+                    {phase.emoji}
+                  </span>
+                  <span className="text-[9px] sm:text-[11px] text-slate-300/70 tabular-nums">
+                    {cell.day}
+                  </span>
+                  {!compact && (
+                    <span className="hidden sm:block text-[8px] text-slate-400/50 tabular-nums">
+                      {Math.round(phase.illumination * 100)}%
+                    </span>
+                  )}
+                </div>
+              );
+            })
+          : // Stable placeholder grid during SSR (no phase data).
+            Array.from({ length: 42 }).map((_, i) => (
+              <div
+                key={`placeholder-${i}`}
+                className="aspect-square rounded-xl bg-white/[0.02] border border-white/5"
+              />
+            ))}
       </div>
 
       <div className="mt-4 pt-4 border-t border-white/10">
