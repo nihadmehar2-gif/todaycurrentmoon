@@ -23,6 +23,7 @@ import { MoonCalendar } from "@/components/site/moon-calendar";
 import { Section, SectionHeading } from "@/components/site/section";
 import { Reveal } from "@/components/site/reveal";
 import { AdSlot } from "@/components/site/ad-slot";
+import { NativeAd } from "@/components/site/native-ad";
 import Link from "next/link";
 import {
   EMOJI_MEANINGS,
@@ -304,6 +305,11 @@ export function HomePage() {
             </div>
           </Card>
         </Reveal>
+      </Section>
+
+      {/* Native Banner — between content and footer. */}
+      <Section id="native-ad" className="pt-0 pb-10">
+        <NativeAd />
       </Section>
 
     </>
