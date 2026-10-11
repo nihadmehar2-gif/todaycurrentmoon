@@ -58,6 +58,19 @@ export function HomePage() {
     <>
       <LiveMoonHero />
 
+      {/* Mobile banner (320x50) — below the main moon information section.
+          Mobile/tablet only; desktop uses the 728x90 leaderboard in the
+          site shell. */}
+      <Section id="mobile-top-ad" className="pt-0 pb-0">
+        <div className="lg:hidden flex justify-center">
+          <AdSlot
+            adKey="b0f955d2352761b944e53b1655707268"
+            width={320}
+            height={50}
+          />
+        </div>
+      </Section>
+
       {/* Current phase guide */}
       <Section id="phase-guide">
         <SectionHeading

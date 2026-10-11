@@ -7,17 +7,16 @@ import { Footer } from "@/components/site/footer";
 import { AdSlot } from "@/components/site/ad-slot";
 
 /**
- * Shared site chrome: cosmic background, sticky navbar, ad banners,
- * content, and a sticky footer. Used by every real App Router page so
- * the layout is identical across the site.
+ * Shared site chrome: cosmic background, sticky navbar, a desktop
+ * leaderboard ad, content, and a sticky footer. Used by every real App
+ * Router page so the layout is identical across the site.
  *
- * Ad placements:
- * - 320x50 mobile banner: below the navbar, above main content (mobile
- *   only, hidden on desktop).
- * - 728x90 desktop banner: before the footer (desktop only, hidden on
- *   mobile).
- * The mobile and desktop banners are mutually exclusive so they never
- * render simultaneously in the same responsive placement.
+ * Ad placement in the shell:
+ * - 728x90 desktop banner: below the navbar, above main content. Desktop
+ *   only (hidden on mobile/tablet). This is the responsive leaderboard.
+ *
+ * The 320x50 mobile banner and 300x250 content banner are placed within
+ * page content (see the homepage) so they sit next to relevant moon info.
  */
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
@@ -25,25 +24,17 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <CosmicBg />
       <Navbar />
 
-      {/* Mobile banner (320x50) — below navbar, mobile only. */}
-      <div className="lg:hidden pt-20 sm:pt-24 pb-3 px-4">
-        <AdSlot
-          adKey="b0f955d2352761b944e53b1655707268"
-          width={320}
-          height={50}
-        />
-      </div>
-
-      <main className="flex-1">{children}</main>
-
-      {/* Desktop banner (728x90) — before footer, desktop only. */}
-      <div className="hidden lg:block py-6 px-4">
+      {/* Desktop leaderboard (728x90) — below navbar, above main content.
+          Desktop only; mobile uses in-content banners instead. */}
+      <div className="hidden lg:flex justify-center pt-24 pb-4 px-4">
         <AdSlot
           adKey="09f003d2d6c27e365f369cb0eafad065"
           width={728}
           height={90}
         />
       </div>
+
+      <main className="flex-1">{children}</main>
 
       <Footer />
     </div>
