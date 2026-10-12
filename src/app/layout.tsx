@@ -1,8 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Outfit, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { SITE_URL, SITE_NAME, SITE_AUTHOR } from "@/lib/site";
+
+/** Google Analytics 4 Measurement ID. */
+const GA_MEASUREMENT_ID = "G-2YFNLFH6JP";
 
 const sans = Outfit({
   variable: "--font-sans",
@@ -106,6 +110,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Google Analytics 4 (gtag.js) — official Google tag. */}
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga-gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body
         className={`${sans.variable} ${display.variable} ${mono.variable} antialiased`}
       >
