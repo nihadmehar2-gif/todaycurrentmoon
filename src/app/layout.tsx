@@ -80,6 +80,9 @@ export const metadata: Metadata = {
   verification: {
     google: "ZD9SdIXWF3yJhDc3HSp5Ti6QufX1rrttnUxM6AFeVSY",
   },
+  other: {
+    "google-adsense-account": "ca-pub-1791950384087416",
+  },
   category: "science",
 };
 
