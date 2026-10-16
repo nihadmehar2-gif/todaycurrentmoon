@@ -27,9 +27,9 @@ export const ROUTES: RouteDef[] = [
   {
     path: "/moon-phases",
     label: "Moon Phases",
-    title: "Moon Phases: All Eight, Explained Simply | Today Current Moon",
+    title: "Moon Phases Explained: All 8 Lunar Phases with Emoji | Today Current Moon",
     description:
-      "A clear guide to all eight moon phases, what each one looks like, when it happens, and what it means.",
+      "A clear, visual guide to all eight moon phases. See what each phase looks like, when it happens in the 29.5-day lunar cycle, the matching moon emoji, and what every phase means.",
   },
   {
     path: "/moon-calendar",

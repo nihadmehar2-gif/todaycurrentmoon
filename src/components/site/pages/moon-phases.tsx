@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { MoonVisual } from "@/components/site/moon-visual";
 import { PageShell } from "@/components/site/page-shell";
@@ -76,7 +77,7 @@ export function MoonPhasesPage() {
 
   return (
     <PageShell
-      title="Moon Phases: All Eight, Explained Simply"
+      title="Moon Phases Explained: All 8 Lunar Phases"
       breadcrumb="Moon Phases"
       path="/moon-phases"
       description={`The Moon moves through eight phases in a cycle that lasts about ${SYNODIC_MONTH.toFixed(
@@ -100,6 +101,15 @@ export function MoonPhasesPage() {
       </section>
 
       <section className="space-y-5">
+        <Reveal>
+          <h2 className="font-display text-2xl font-semibold text-white">
+            The eight phases of the Moon
+          </h2>
+          <p className="text-slate-300/80 leading-relaxed mt-2">
+            Each phase below shows what the Moon looks like, when it happens in
+            the cycle, and what it has meant to people for ages.
+          </p>
+        </Reveal>
         {PHASE_CATALOG.map((phase, i) => {
           const detail = PHASE_DETAILS[phase.key];
           return (
@@ -162,6 +172,59 @@ export function MoonPhasesPage() {
             is why a full moon can fall on any date of the month. Our tool tracks
             this drift for you, so the phase and emoji stay correct every day.
           </p>
+        </Card>
+      </Reveal>
+
+      {/* Related tools — contextual internal links to existing pages. */}
+      <Reveal>
+        <Card className="glass rounded-3xl border-white/10 p-6 sm:p-8">
+          <h2 className="font-display text-xl font-semibold text-white mb-4">
+            Keep exploring the Moon
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Link
+              href="/moon-calendar"
+              className="group glass rounded-2xl p-4 border-white/10 hover:border-indigo-300/30 transition-colors"
+            >
+              <div className="text-2xl mb-1" aria-hidden>
+                {"\u{1F5D3}\u{FE0F}"}
+              </div>
+              <div className="font-display text-base font-semibold text-white">
+                Moon Calendar
+              </div>
+              <p className="text-sm text-slate-300/70 mt-1">
+                See the moon phase for every day of any month.
+              </p>
+            </Link>
+            <Link
+              href="/moon-calculator"
+              className="group glass rounded-2xl p-4 border-white/10 hover:border-indigo-300/30 transition-colors"
+            >
+              <div className="text-2xl mb-1" aria-hidden>
+                {"\u{1F4C5}"}
+              </div>
+              <div className="font-display text-base font-semibold text-white">
+                Moon Calculator
+              </div>
+              <p className="text-sm text-slate-300/70 mt-1">
+                Find the moon phase for any past or future date.
+              </p>
+            </Link>
+            <Link
+              href="/"
+              className="group glass rounded-2xl p-4 border-white/10 hover:border-indigo-300/30 transition-colors"
+            >
+              <div className="text-2xl mb-1" aria-hidden>
+                {"\u{1F315}"}
+              </div>
+              <div className="font-display text-base font-semibold text-white">
+                Tonight&apos;s Moon
+              </div>
+              <p className="text-sm text-slate-300/70 mt-1">
+                See the current moon phase, emoji, and live data.
+              </p>
+            </Link>
+          </div>
         </Card>
       </Reveal>
     </PageShell>

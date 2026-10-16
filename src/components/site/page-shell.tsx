@@ -95,12 +95,22 @@ export function PageShell({
         <div className="mt-10 space-y-12">{children}</div>
       </div>
 
+      {/* Breadcrumb structured data (always present on inner pages). */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd ?? breadcrumbLd),
+          __html: JSON.stringify(breadcrumbLd),
         }}
       />
+      {/* Page-specific structured data (e.g. FAQPage), if provided. */}
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
+      )}
     </article>
   );
 }
