@@ -87,7 +87,7 @@ export function ContactPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact Moon Phase Emoji",
+    name: "Contact Today Current Moon",
     email: SITE_EMAIL,
   };
 
