@@ -67,11 +67,11 @@ export const ROUTES: RouteDef[] = [
       "Our privacy policy in plain words. We use Google Analytics and advertising partners, and store contact form submissions in our database.",
   },
   {
-    path: "/terms",
+    path: "/terms-of-use",
     label: "Terms of Use",
     title: "Terms of Use | Today Current Moon",
     description:
-      "Clear, fair rules for using Today Current Moon and its free moon tools.",
+      "Clear, fair rules for using Today Current Moon and its free moon phase tools, calendar, and calculators.",
   },
 ];
 

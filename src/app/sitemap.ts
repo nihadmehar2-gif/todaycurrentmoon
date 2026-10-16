@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about": 0.5,
     "/contact": 0.5,
     "/privacy": 0.3,
-    "/terms": 0.3,
+    "/terms-of-use": 0.3,
   };
   const frequencies: Record<string, "daily" | "weekly" | "monthly" | "yearly"> =
     {
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/about": "monthly",
       "/contact": "monthly",
       "/privacy": "yearly",
-      "/terms": "yearly",
+      "/terms-of-use": "yearly",
     };
 
   return ROUTES.map((r) => ({

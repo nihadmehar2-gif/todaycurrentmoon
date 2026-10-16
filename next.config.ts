@@ -32,6 +32,12 @@ const nextConfig: NextConfig = {
         destination: "/moon-calculator",
         permanent: true,
       },
+      {
+        // Old short URL -> canonical /terms-of-use URL.
+        source: "/terms",
+        destination: "/terms-of-use",
+        permanent: true,
+      },
     ];
   },
 };

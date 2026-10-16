@@ -78,7 +78,7 @@ export function Footer() {
               &middot;
             </span>
             <Link
-              href="/terms"
+              href="/terms-of-use"
               className="hover:text-white transition-colors"
             >
               Terms
