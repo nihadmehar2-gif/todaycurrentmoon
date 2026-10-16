@@ -248,28 +248,52 @@ export function MoonVisual({
 
   useEffect(() => {
     let cancelled = false;
+    let observer: IntersectionObserver | null = null;
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    if (canvas.width !== TEX) {
-      canvas.width = TEX;
-      canvas.height = TEX;
-    }
-    if (!imageDataRef.current) {
-      imageDataRef.current = ctx.createImageData(TEX, TEX);
-    }
-    loadTexture().then((tex) => {
-      if (cancelled || !tex) return;
-      try {
-        renderMoon(ctx, phaseBucket, tex, imageDataRef.current!);
-        canvas.style.opacity = "1";
-      } catch {
-        // SVG fallback stays visible.
+
+    const doRender = () => {
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      if (canvas.width !== TEX) {
+        canvas.width = TEX;
+        canvas.height = TEX;
       }
-    });
+      if (!imageDataRef.current) {
+        imageDataRef.current = ctx.createImageData(TEX, TEX);
+      }
+      loadTexture().then((tex) => {
+        if (cancelled || !tex) return;
+        try {
+          renderMoon(ctx, phaseBucket, tex, imageDataRef.current!);
+          canvas.style.opacity = "1";
+        } catch {
+          // SVG fallback stays visible.
+        }
+      });
+    };
+
+    // Lazy-render: only process the canvas when the moon scrolls into
+    // view. This avoids rendering 8 heavy canvases up-front on long
+    // pages (e.g. the Moon Phases guide).
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0]?.isIntersecting) {
+            doRender();
+            observer?.disconnect();
+          }
+        },
+        { rootMargin: "200px" },
+      );
+      observer.observe(canvas);
+    } else {
+      doRender();
+    }
+
     return () => {
       cancelled = true;
+      observer?.disconnect();
     };
   }, [phaseBucket]);
 
