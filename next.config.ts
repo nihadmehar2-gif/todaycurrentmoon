@@ -15,6 +15,14 @@ const nextConfig: NextConfig = {
         destination: "/privacy",
         permanent: true,
       },
+      {
+        // Common singular misspelling -> correct plural URL.
+        // Google discovered /moon-phase (singular) which 404s. Redirect
+        // to the canonical /moon-phases so it gets indexed correctly.
+        source: "/moon-phase",
+        destination: "/moon-phases",
+        permanent: true,
+      },
     ];
   },
 };
