@@ -78,7 +78,7 @@ export function PageShell({
         </Reveal>
 
         <Reveal delay={0.05}>
-          <span className="eyebrow mb-3">Moon Phase Emoji</span>
+          <span className="eyebrow mb-3">Today Current Moon</span>
           <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-gradient leading-[1.1] tracking-tight">
             {title}
           </h1>

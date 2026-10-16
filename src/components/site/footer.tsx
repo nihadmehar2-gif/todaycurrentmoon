@@ -20,7 +20,7 @@ export function Footer() {
                 <MoonStar className="w-5 h-5 text-indigo-100" />
               </span>
               <span className="font-display text-lg font-semibold text-gradient">
-                Moon Phase Emoji
+                Today Current Moon
               </span>
             </div>
             <p className="text-sm text-slate-300/70 leading-relaxed">

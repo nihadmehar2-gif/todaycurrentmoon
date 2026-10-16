@@ -57,7 +57,7 @@ export function Navbar() {
             </span>
             <span className="flex flex-col leading-none">
               <span className="font-display text-lg font-semibold tracking-tight text-gradient">
-                Moon Phase Emoji
+                Today Current Moon
               </span>
               <span className="text-[10px] uppercase tracking-[0.22em] text-indigo-200/60">
                 Tonight&apos;s Moon
@@ -109,7 +109,7 @@ export function Navbar() {
               >
                 <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
                   <SheetTitle className="font-display text-lg text-gradient">
-                    Moon Phase Emoji
+                    Today Current Moon
                   </SheetTitle>
                 </div>
                 <nav className="flex flex-col p-3">
