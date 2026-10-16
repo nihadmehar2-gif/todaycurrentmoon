@@ -269,10 +269,63 @@ export function MoonCalculatorsPage() {
         <Card className="glass rounded-2xl border-white/10 p-5 sm:p-6">
           <p className="text-sm text-slate-300/80 leading-relaxed">
             Every tool here uses the same lunar math, based on the 29.53-day
-            cycle and a known reference new moon. That keeps the phase, emoji,
-            and dates consistent across the whole site. Pick a tool, enter your
-            date, and get an answer in seconds.
+            cycle and actual new moon times from USNO and NASA. That keeps the
+            phase, emoji, and dates consistent across the whole site. Pick a
+            tool, enter your date, and get an answer in seconds.
           </p>
+        </Card>
+      </Reveal>
+
+      {/* Related tools — contextual internal links. */}
+      <Reveal>
+        <Card className="glass rounded-3xl border-white/10 p-6 sm:p-8">
+          <h2 className="font-display text-xl font-semibold text-white mb-4">
+            Keep exploring the Moon
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Link
+              href="/moon-phases"
+              className="group glass rounded-2xl p-4 border-white/10 hover:border-indigo-300/30 transition-colors"
+            >
+              <div className="text-2xl mb-1" aria-hidden>
+                {"\u{1F312}"}
+              </div>
+              <div className="font-display text-base font-semibold text-white">
+                Moon Phases Guide
+              </div>
+              <p className="text-sm text-slate-300/70 mt-1">
+                Learn what each of the eight moon phases looks like and means.
+              </p>
+            </Link>
+            <Link
+              href="/moon-calendar"
+              className="group glass rounded-2xl p-4 border-white/10 hover:border-indigo-300/30 transition-colors"
+            >
+              <div className="text-2xl mb-1" aria-hidden>
+                {"\u{1F5D3}\u{FE0F}"}
+              </div>
+              <div className="font-display text-base font-semibold text-white">
+                Moon Calendar
+              </div>
+              <p className="text-sm text-slate-300/70 mt-1">
+                See the moon phase for every day of any month.
+              </p>
+            </Link>
+            <Link
+              href="/"
+              className="group glass rounded-2xl p-4 border-white/10 hover:border-indigo-300/30 transition-colors"
+            >
+              <div className="text-2xl mb-1" aria-hidden>
+                {"\u{1F315}"}
+              </div>
+              <div className="font-display text-base font-semibold text-white">
+                Tonight&apos;s Moon
+              </div>
+              <p className="text-sm text-slate-300/70 mt-1">
+                See the current moon phase, emoji, and live data.
+              </p>
+            </Link>
+          </div>
         </Card>
       </Reveal>
     </PageShell>

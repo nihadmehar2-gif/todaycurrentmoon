@@ -41,9 +41,9 @@ export const ROUTES: RouteDef[] = [
   {
     path: "/moon-calculator",
     label: "Moon Calculator",
-    title: "Moon Calculator: Free Tools for Every Lunar Question | Today Current Moon",
+    title: "Moon Phase Calculator: Find the Moon for Any Date | Today Current Moon",
     description:
-      "Find the moon phase for any date, check the next full moon, or see the Moon on your birthday with a free moon calculator.",
+      "Free moon phase calculator. Find the moon phase for any date, check the next full moon, see the Moon on your birthday, and track lunar cycle progress with easy tools.",
   },
   {
     path: "/about",
