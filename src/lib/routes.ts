@@ -34,9 +34,9 @@ export const ROUTES: RouteDef[] = [
   {
     path: "/moon-calendar",
     label: "Moon Calendar",
-    title: "Moon Calendar: Every Phase, Every Day | Today Current Moon",
+    title: "Moon Calendar 2026: Monthly Moon Phase Calendar | Today Current Moon",
     description:
-      "Browse any month and see the moon phase for each day. A free, interactive moon calendar with one emoji per day.",
+      "Free interactive moon calendar showing the moon phase for every day of any month. See full moon dates, new moon dates, and all eight lunar phases at a glance.",
   },
   {
     path: "/moon-calculator",
