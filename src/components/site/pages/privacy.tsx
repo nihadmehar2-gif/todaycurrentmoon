@@ -8,11 +8,15 @@ import { useMounted } from "@/components/site/use-mounted";
 const SECTIONS = [
   {
     h: "The short version",
-    p: "We keep things simple. We do not use analytics, ads, tracking pixels, or third party services on this site. We only store what you choose to send us through the contact form.",
+    p: "This site uses Google Analytics to understand traffic and advertising partners to display ads. If you submit the contact form, we store your name, email, subject, and message in our database. We do not sell your personal details.",
   },
   {
-    h: "What we collect",
-    p: "If you submit the contact form, we save the name, email, subject, and message you type in. We use this only to read and reply to your note. We do not collect browsing data, search history, or personal profiles.",
+    h: "Analytics and advertising",
+    p: "We use Google Analytics (GA4) to collect anonymous data about how visitors use the site, such as which pages are viewed and how long visitors stay. Google may set cookies to track this data. We also display ads from third-party advertising partners. These partners may use cookies or similar technologies to show relevant ads. You can control cookies in your browser settings.",
+  },
+  {
+    h: "What we collect from the contact form",
+    p: "If you submit the contact form, we save the name, email, subject, and message you type in. We use this only to read and reply to your note. We do not use your contact details for marketing or share them with advertisers.",
   },
   {
     h: "Location and time zone",
@@ -20,11 +24,11 @@ const SECTIONS = [
   },
   {
     h: "Cookies",
-    p: "We do not set tracking cookies. The site may use your browser storage to remember simple choices, like the time zone you pick. These are kept on your device and are not shared with us or anyone else.",
+    p: "Google Analytics and our advertising partners may set cookies. These cookies help track anonymous usage data and serve ads. You can block or delete cookies in your browser settings. The site also uses your browser storage to remember simple choices, like the time zone you pick.",
   },
   {
     h: "How we store messages",
-    p: "Contact form messages are saved in our own database. We keep them only as long as needed to handle your request, then we remove them. We do not sell or share your details with anyone.",
+    p: "Contact form messages are saved in our database. We keep them only as long as needed to handle your request. We do not sell or share your contact details with anyone.",
   },
   {
     h: "External links",
@@ -32,7 +36,7 @@ const SECTIONS = [
   },
   {
     h: "Your choices",
-    p: "You do not need to share any data to use the moon tools. The live moon, calendar, and calculators all work without an account. You only share details if you choose to use the contact form.",
+    p: "You do not need to share any data to use the moon tools. The live moon, calendar, and calculators all work without an account. You only share details if you choose to use the contact form. You can block cookies and still use the moon tools.",
   },
   {
     h: "Children",
@@ -55,7 +59,7 @@ export function PrivacyPage() {
     "@type": "WebPage",
     name: "Privacy Policy",
     description:
-      "The Moon Phase Emoji privacy policy. We do not use analytics, ads, or tracking.",
+      "The Today Current Moon privacy policy. We use Google Analytics and advertising partners, and store contact form submissions.",
   };
 
   return (
@@ -63,7 +67,7 @@ export function PrivacyPage() {
       title="Privacy Policy"
       breadcrumb="Privacy Policy"
       path="/privacy"
-      description="We respect your privacy. This page explains, in plain words, what we do and do not collect."
+      description="We respect your privacy. This page explains, in plain words, what data we collect and how we use it."
       jsonLd={jsonLd}
     >
       <div className="space-y-5">

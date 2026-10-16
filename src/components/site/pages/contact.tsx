@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Mail, Send, CheckCircle2, Loader2, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -313,9 +314,17 @@ export function ContactPage() {
           />
           <p className="text-slate-300/80 leading-relaxed mt-3">
             When you submit the form, we save your name, email, subject, and
-            message so we can read and reply. We do not use analytics, ads,
-            tracking pixels, or third party tools on this site. For the full
-            details, see our privacy policy.
+            message in our database so we can read and reply. This site uses
+            Google Analytics to understand traffic, and advertising partners
+            to support the site. These services may set cookies or collect
+            anonymous usage data. For the full details, see our{" "}
+            <Link
+              href="/privacy"
+              className="text-indigo-200 hover:text-white underline underline-offset-2"
+            >
+              privacy policy
+            </Link>
+            .
           </p>
         </Card>
       </Reveal>

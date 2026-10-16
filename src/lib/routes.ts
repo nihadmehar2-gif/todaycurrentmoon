@@ -64,7 +64,7 @@ export const ROUTES: RouteDef[] = [
     label: "Privacy Policy",
     title: "Privacy Policy | Today Current Moon",
     description:
-      "Our privacy policy in plain words. We do not use analytics, ads, or tracking. We only store what you send through the contact form.",
+      "Our privacy policy in plain words. We use Google Analytics and advertising partners, and store contact form submissions in our database.",
   },
   {
     path: "/terms",
