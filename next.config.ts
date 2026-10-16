@@ -23,6 +23,15 @@ const nextConfig: NextConfig = {
         destination: "/moon-phases",
         permanent: true,
       },
+      {
+        // Plural misspelling -> correct singular URL.
+        // The actual page is /moon-calculator (singular). Google and users
+        // may try /moon-calculators (plural) which 404s. Redirect to the
+        // canonical /moon-calculator.
+        source: "/moon-calculators",
+        destination: "/moon-calculator",
+        permanent: true,
+      },
     ];
   },
 };
